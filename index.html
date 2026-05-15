@@ -102,7 +102,6 @@
             scroll-behavior: smooth;
         }
         body {
-            perspective: 1500px;
             overflow-x: hidden;
         }
 
@@ -253,7 +252,6 @@
 </div>
 </nav>
 </header>
-<main class="relative">
 <div class="parallax-bg"></div>
 <!-- Hero Section -->
 <section id="home" class="relative pt-40 pb-section-gap overflow-hidden hero-glow">
@@ -399,16 +397,19 @@ Contact Me
                     <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
                     <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
                     <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
-                    <span class="ml-4 font-code-sm text-on-surface-variant opacity-70">terminal — bug_runner.sh</span>
+                    <span id="terminal-title" class="ml-4 font-code-sm text-on-surface-variant opacity-70">terminal — system.sh</span>
                 </div>
                 <div id="game-score" class="font-code-sm text-primary">Score: 0000</div>
             </div>
             <div id="game-container" class="cursor-pointer group relative">
                 <canvas id="game-canvas"></canvas>
-                <div id="game-overlay" class="absolute inset-0 bg-background/60 backdrop-blur-sm flex flex-col items-center justify-center transition-opacity">
-                    <h3 class="font-display-lg-mobile text-primary mb-4">COMMIT SNAKE</h3>
-                    <p class="text-on-surface-variant mb-8 font-body-md">Use Arrows/WASD or Click to turn. Grow your graph.</p>
-                    <button id="start-game" class="bg-primary text-on-primary px-8 py-3 rounded-xl font-bold hover:scale-105 transition-transform">./start_game</button>
+                <div id="game-overlay" class="absolute inset-0 bg-background/60 backdrop-blur-sm flex flex-col items-center justify-center transition-opacity p-6 text-center">
+                    <h3 id="game-overlay-title" class="font-display-lg-mobile text-primary mb-2 text-2xl md:text-4xl">SYSTEM_READY</h3>
+                    <p id="game-overlay-desc" class="text-on-surface-variant mb-8 font-body-md">Select a script to execute in the terminal.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button id="start-snake" class="bg-primary text-on-primary px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform">./run_snake</button>
+                        <button id="start-dodger" class="bg-secondary text-on-secondary px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform">./run_dodger</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -497,13 +498,10 @@ Contact Me
     // Fixed Navbar behavior on scroll
     const mainHeader = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
-            mainHeader.classList.remove('top-6', 'w-[95%]', 'rounded-2xl');
-            mainHeader.classList.add('top-0', 'w-full', 'rounded-none');
-        } else {
-            mainHeader.classList.add('top-6', 'w-[95%]', 'rounded-2xl');
-            mainHeader.classList.remove('top-0', 'w-full', 'rounded-none');
-        }
+        const isScrolled = window.scrollY > 20;
+        mainHeader.classList.toggle('bg-surface/80', isScrolled);
+        mainHeader.classList.toggle('backdrop-blur-md', isScrolled);
+        mainHeader.classList.toggle('shadow-2xl', isScrolled);
     });
 
     // 3D Tilt Effect for cards
@@ -539,15 +537,21 @@ Contact Me
     const gameCanvas = document.getElementById('game-canvas');
     const ctx = gameCanvas.getContext('2d');
     const gameScoreElement = document.getElementById('game-score');
+    const terminalTitle = document.getElementById('terminal-title');
     const gameOverlay = document.getElementById('game-overlay');
-    const startBtn = document.getElementById('start-game');
+    const gameOverlayTitle = document.getElementById('game-overlay-title');
+    const gameOverlayDesc = document.getElementById('game-overlay-desc');
+    const startSnakeBtn = document.getElementById('start-snake');
+    const startDodgerBtn = document.getElementById('start-dodger');
 
     const GRID_SIZE = 20;
     let isPlaying = false;
+    let currentGame = 'snake';
     let score = 0;
     let snake = [];
     let food = { x: 0, y: 0 };
-    let dx = 1;
+    let bugs = [];
+    let dx = 1, playerX = 0;
     let dy = 0;
     let lastDx = 1;
     let lastDy = 0;
@@ -571,10 +575,15 @@ Contact Me
         const gameKeys = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright', 'w', 'a', 's', 'd'];
         if (gameKeys.includes(key)) e.preventDefault();
 
-        if ((key === 'arrowup' || key === 'w') && lastDy === 0) { dx = 0; dy = -1; }
-        if ((key === 'arrowdown' || key === 's') && lastDy === 0) { dx = 0; dy = 1; }
-        if ((key === 'arrowleft' || key === 'a') && lastDx === 0) { dx = -1; dy = 0; }
-        if ((key === 'arrowright' || key === 'd') && lastDx === 0) { dx = 1; dy = 0; }
+        if (currentGame === 'snake') {
+            if ((key === 'arrowup' || key === 'w') && lastDy === 0) { dx = 0; dy = -1; }
+            if ((key === 'arrowdown' || key === 's') && lastDy === 0) { dx = 0; dy = 1; }
+            if ((key === 'arrowleft' || key === 'a') && lastDx === 0) { dx = -1; dy = 0; }
+            if ((key === 'arrowright' || key === 'd') && lastDx === 0) { dx = 1; dy = 0; }
+        } else if (currentGame === 'dodger') {
+            if (key === 'arrowleft' || key === 'a') { dx = -1; dy = 0; }
+            if (key === 'arrowright' || key === 'd') { dx = 1; dy = 0; }
+        }
     });
 
     // Mobile/Click support: Cycle direction
@@ -601,14 +610,17 @@ Contact Me
         if (timestamp - lastTime < gameSpeed) return;
         lastTime = timestamp;
 
+        if (currentGame === 'snake') updateSnake();
+        else updateDodger();
+    }
+
+    function updateSnake() {
         lastDx = dx;
         lastDy = dy;
-
-        const head = { x: snake[0].x + dx, y: snake[0].y + dy };
         const cols = Math.floor(gameCanvas.width / GRID_SIZE);
         const rows = Math.floor(gameCanvas.height / GRID_SIZE);
+        const head = { x: snake[0].x + dx, y: snake[0].y + dy };
 
-        // Collisions
         if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows ||
             snake.some(seg => seg.x === head.x && seg.y === head.y)) {
             return gameOver();
@@ -624,21 +636,36 @@ Contact Me
         } else {
             snake.pop();
         }
-
-        draw(cols, rows);
+        drawSnake(cols, rows);
     }
 
-    function draw(cols, rows) {
+    function updateDodger() {
+        const cols = Math.floor(gameCanvas.width / GRID_SIZE);
+        const rows = Math.floor(gameCanvas.height / GRID_SIZE);
+        playerX = Math.max(0, Math.min(cols - 1, playerX + dx));
+        
+        if (Math.random() < 0.9) bugs.push({ x: Math.floor(Math.random() * cols), y: 0 });
+
+        for (let i = bugs.length - 1; i >= 0; i--) {
+            bugs[i].y += 1;
+            if (bugs[i].y === rows - 1 && bugs[i].x === playerX) return gameOver();
+            if (bugs[i].y >= rows) {
+                bugs.splice(i, 1);
+                score += 1;
+                gameScoreElement.textContent = `Score: ${score.toString().padStart(4, '0')}`;
+                gameSpeed = Math.max(40, 50 - (score / 10));
+            }
+        }
+        drawDodger(cols, rows);
+    }
+
+    function drawSnake(cols, rows) {
         ctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
         const cellW = gameCanvas.width / cols;
         const cellH = gameCanvas.height / rows;
-
-        // Food
-        ctx.fillStyle = '#ffb4ab';
+        ctx.fillStyle = '#ffb4ab'; // Food
         ctx.fillRect(food.x * cellW + 2, food.y * cellH + 2, cellW - 4, cellH - 4);
-
-        // Snake
-        ctx.fillStyle = '#a4e6ff';
+        ctx.fillStyle = '#a4e6ff'; // Snake
         snake.forEach((seg, i) => {
             ctx.globalAlpha = 1 - (i / snake.length * 0.6);
             ctx.fillRect(seg.x * cellW + 1, seg.y * cellH + 1, cellW - 2, cellH - 2);
@@ -646,29 +673,51 @@ Contact Me
         ctx.globalAlpha = 1;
     }
 
+    function drawDodger(cols, rows) {
+        ctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
+        const cellW = gameCanvas.width / cols;
+        const cellH = gameCanvas.height / rows;
+        ctx.fillStyle = '#a4e6ff'; // Player
+        ctx.fillRect(playerX * cellW + 1, (rows - 1) * cellH + 1, cellW - 2, cellH - 2);
+        ctx.fillStyle = '#ffb4ab'; // Bugs
+        bugs.forEach(bug => ctx.fillRect(bug.x * cellW + 2, bug.y * cellH + 2, cellW - 4, cellH - 4));
+    }
+
     function gameOver() {
         isPlaying = false;
-        document.body.style.overflow = ''; // Re-enable page scrolling
+        document.body.style.overflow = '';
+        gameOverlayTitle.textContent = "KERNEL_PANIC";
+        gameOverlayDesc.textContent = `Final Score: ${score.toString().padStart(4, '0')}. Re-execute?`;
         gameOverlay.style.opacity = '1';
         gameOverlay.style.pointerEvents = 'all';
     }
 
-    startBtn.addEventListener('click', () => {
-        score = 0;
-        snake = [{ x: 5, y: 5 }, { x: 4, y: 5 }, { x: 3, y: 5 }];
-        dx = 1; 
-        dy = 0; 
-        lastDx = 1;
-        lastDy = 0;
-        gameSpeed = 100;
-        lastTime = 0;
+    function startGame() {
         isPlaying = true;
-        document.body.style.overflow = 'hidden'; // Lock page scrolling
+        lastTime = 0;
+        document.body.style.overflow = 'hidden';
         gameOverlay.style.opacity = '0';
         gameOverlay.style.pointerEvents = 'none';
         gameScoreElement.textContent = `Score: 0000`;
-        spawnFood();
+        if (currentGame === 'snake') spawnFood();
         animate(0);
+    }
+
+    startSnakeBtn.addEventListener('click', () => {
+        currentGame = 'snake';
+        score = 0; gameSpeed = 100; dx = 1; dy = 0; lastDx = 1; lastDy = 0;
+        snake = [{ x: 5, y: 5 }, { x: 4, y: 5 }, { x: 3, y: 5 }];
+        terminalTitle.textContent = 'terminal — snake.sh';
+        startGame();
+    });
+
+    startDodgerBtn.addEventListener('click', () => {
+        currentGame = 'dodger';
+        score = 0; gameSpeed = 50; dx = 0; bugs = [];
+        playerX = Math.floor(Math.floor(gameCanvas.width / GRID_SIZE) / 2);
+        terminalTitle.textContent = 'terminal — bug_dodger.sh';
+        startGame();
     });
 </script>
-</body></html>
+</body>
+</html>
