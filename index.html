@@ -7,7 +7,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script type="text/javascript" src="/assets/email-service.js" onerror="console.warn('Local Email Service failed to load. Falling back to CDN.'); this.onerror=null; this.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';"></script>
+<script type="text/javascript" src="assets/email-service.js" onerror="console.warn('Local Email Service failed to load. Falling back to CDN.'); this.onerror=null; this.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';"></script>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -557,9 +557,7 @@ Contact Me
                 }
 
                 // Initialize inside the handler to ensure the global object is ready
-                emailjs.init({
-                    publicKey: "Y2LaFsZSbGy7XKtgv",
-                });
+            emailjs.init("Y2LaFsZSbGy7XKtgv");
 
                 // Set the current time for the template
                 document.getElementById('form-time').value = new Date().toLocaleString();
