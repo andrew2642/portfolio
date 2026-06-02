@@ -7,6 +7,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script type="text/javascript" src="/assets/email-service.js" onerror="console.warn('Local Email Service failed to load. Falling back to CDN.'); this.onerror=null; this.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';"></script>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -304,7 +305,7 @@
 <span class="font-label-caps text-label-caps uppercase tracking-widest">Available for hire</span>
 </div>
 <h1 class="reveal-2 font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 leading-tight cursor-default">
-<span class="glitch-text">Hi, I'm Andrew</span> <br> <span class="typewriter-text typewriter-line-1"> &gt; Web Developer</h1>
+<span class="glitch-text">Hi, I'm Andrew</span> <br> <span class="typewriter-text typewriter-line-1"> &gt; Web Developer</span></h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 reveal-3 cursor-blink">
 <span>Crafting modern websites and digital experiences with clean code, responsive design,<br> and creative solutions.</span>
 </p>
@@ -495,12 +496,13 @@ Contact Me
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-on-surface-variant font-label-caps text-xs mb-3 uppercase tracking-widest opacity-70">User_Name</label>
-                            <input type="text" name="user_name" placeholder="Enter name..." required class="w-full bg-surface-container-high border border-white/5 rounded-xl px-4 py-4 text-on-surface focus:outline-none focus:border-primary/50 transition-all font-body-md placeholder:opacity-30">
+                            <input type="text" name="name" placeholder="Enter name..." required class="w-full bg-surface-container-high border border-white/5 rounded-xl px-4 py-4 text-on-surface focus:outline-none focus:border-primary/50 transition-all font-body-md placeholder:opacity-30">
                         </div>
                         <div>
                             <label class="block text-on-surface-variant font-label-caps text-xs mb-3 uppercase tracking-widest opacity-70">Return_Address</label>
-                            <input type="email" name="user_email" placeholder="Enter email..." required class="w-full bg-surface-container-high border border-white/5 rounded-xl px-4 py-4 text-on-surface focus:outline-none focus:border-primary/50 transition-all font-body-md placeholder:opacity-30">
+                            <input type="email" name="email" placeholder="Enter email..." required class="w-full bg-surface-container-high border border-white/5 rounded-xl px-4 py-4 text-on-surface focus:outline-none focus:border-primary/50 transition-all font-body-md placeholder:opacity-30">
                         </div>
+                        <input type="hidden" name="time" id="form-time">
                     </div>
                     <div>
                         <label class="block text-on-surface-variant font-label-caps text-xs mb-3 uppercase tracking-widest opacity-70">Mission_Details</label>
@@ -525,7 +527,7 @@ Contact Me
 </div>
 <div class="flex items-center space-x-8">
 <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md opacity-80 hover:opacity-100" href="https://github.com/andrew2642" target="_blank">GitHub</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md opacity-80 hover:opacity-100" href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md opacity-80 hover:opacity-100" href="https://www.linkedin.com/in/andrew-milad-/" target="_blank">LinkedIn</a>
 </div>
 </div>
 </footer>
@@ -534,6 +536,55 @@ Contact Me
 <span class="material-symbols-outlined" data-icon="add">add</span>
 </button>
 <script>
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (contactForm && submitBtn) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            console.log('Transmission sequence initiated...');
+            
+            const originalContent = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <span class="animate-spin material-symbols-outlined">sync</span>
+                Relaying Signal...
+            `;
+
+            try {
+                if (typeof emailjs === 'undefined') {
+                    throw new Error('Email Service is unavailable. Please disable ad-blockers and check your connection.');
+                }
+
+                // Initialize inside the handler to ensure the global object is ready
+                emailjs.init({
+                    publicKey: "Y2LaFsZSbGy7XKtgv",
+                });
+
+                // Set the current time for the template
+                document.getElementById('form-time').value = new Date().toLocaleString();
+
+                const result = await emailjs.sendForm(
+                    'service_d37940b',
+                    'template_zyk9uva',
+                    e.target // Pass the form element directly
+                );
+                
+                console.log('Transmission Success:', result);
+                alert('Transmission Successful! Mission details received.');
+                contactForm.reset();
+            } catch (error) {
+                console.error('Transmission Failure Details:', error);
+                // Capture error details from EmailJS (.text) or standard JS Errors (.message)
+                const errorMessage = error?.text || error?.message || 'Unknown signal interference.';
+                alert('Critical Error: ' + errorMessage);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalContent;
+            }
+        });
+    }
+
     const menuToggle = document.getElementById('menu-toggle');
     const closeMenu = document.getElementById('close-menu');
     const overlay = document.getElementById('mobile-overlay');
@@ -799,49 +850,6 @@ Contact Me
         playerX = Math.floor(Math.floor(gameCanvas.width / GRID_SIZE) / 2);
         terminalTitle.textContent = 'terminal — bug_dodger.sh';
         startGame();
-    });
-
-    // Contact Form Backend Integration
-    const contactForm = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Visual feedback during processing
-        const originalContent = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `
-            <span class="animate-spin material-symbols-outlined">sync</span>
-            Processing Transmission...
-        `;
-
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries());
-
-        try {
-            // Updated to point to Django's default port
-            const response = await fetch('http://localhost:8000/contact/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
-
-            if (response.ok) {
-                alert('Transmission Successful! Mission details received.');
-                contactForm.reset();
-            } else {
-                throw new Error('Signal lost in transit.');
-            }
-        } catch (error) {
-            alert('Critical Error: Failed to establish connection with command center.');
-            console.error(error);
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalContent;
-        }
     });
 </script>
 </body>
