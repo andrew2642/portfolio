@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DevPortfolio | Creative Developer</title>
+<title>DevPortfolio</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist+Mono:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+<script src="https://unpkg.com/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
 <script type="text/javascript" src="assets/contact-utility.js" onerror="console.warn('Local Email Service failed to load. Falling back to CDN.'); this.onerror=null; this.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';"></script>
 <script id="tailwind-config">
       tailwind.config = {
@@ -73,7 +75,7 @@
                     "container-max": "1200px",
                     "margin-desktop": "80px",
                     "base": "8px",
-                    "section-gap": "120px",
+                    "section-gap": "80px",
                     "margin-mobile": "20px"
             },
             "fontFamily": {
@@ -172,6 +174,7 @@
         }
         .reveal-1 { animation: reveal-up 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
         .reveal-2 { animation: reveal-up 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.15s forwards; opacity: 0; }
+        .reveal-3 { animation: reveal-up 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.3s forwards; opacity: 0; }
 
         .typewriter-text {
             overflow: hidden;
@@ -181,7 +184,7 @@
             vertical-align: bottom; /* Align with text baseline */
             letter-spacing: 0px; /* Essential for steps() alignment on monospaced fonts */
         }
-        .typewriter-line-1 { animation: typing-1 0.8s steps(15, end) forwards; animation-delay: 0.4s; }
+        .typewriter-line-1 { animation: typing-1 1.2s steps(26, end) forwards; animation-delay: 0.4s; }
         @keyframes typing-1 { from { width: 0; } to { width: 100%; } }
         
         .typewriter-line-2 { animation: typing-2 1s steps(22, end) forwards; animation-delay: 1.3s; }
@@ -190,7 +193,7 @@
         .cursor-blink::after {
             content: '_';
             animation: blink 1s step-end infinite;
-            animation-delay: 2.3s; /* Sync with end of typing-line-2 */
+            animation-delay: 1.6s; /* Sync with end of typing-line-1 (0.4s delay + 1.2s duration) */
             animation-fill-mode: forwards; /* Keep final state */
             color: currentColor;
             margin-left: 4px;
@@ -282,13 +285,6 @@
 <a class="nav-link text-on-surface-variant font-medium hover:text-primary font-body-md text-body-md" href="#playground">./play</a>
 <a class="nav-link text-on-surface-variant font-medium hover:text-primary font-body-md text-body-md" href="#contact">./contact</a>
 </div>
-<div class="flex items-center space-x-4">
-<button id="theme-toggle" class="hidden md:flex items-center text-on-surface-variant hover:text-primary transition-all">
-<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
-</button>
-<button onclick="document.getElementById('playground').scrollIntoView()" class="hidden md:flex items-center text-on-surface-variant hover:text-primary transition-all">
-<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
-</button>
 <button onclick="window.location.href='#contact'" class="bg-primary text-on-primary font-bold px-6 py-2 rounded-lg active:scale-95 duration-150 transition-all font-body-md text-body-md">Hire Me</button>
 <button id="menu-toggle" class="md:hidden flex items-center text-on-surface ml-2">
 <span class="material-symbols-outlined">menu</span>
@@ -298,36 +294,288 @@
 </header>
 <div class="parallax-bg"></div>
 <!-- Hero Section -->
-<section id="home" class="relative pt-40 pb-section-gap overflow-hidden hero-glow">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="max-w-4xl">
-<div class="reveal-1 inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/10 text-primary mb-6 font-code-sm">
-<span class="font-label-caps text-label-caps uppercase tracking-widest">Available for hire</span>
+<section id="home" class="relative pt-16 pb-section-gap overflow-hidden hero-glow">
+<div class="w-[95%] max-w-container-max mx-auto px-6 md:px-10">
+<div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+<div class="max-w-3xl relative z-10">
+    <div class="reveal-1 flex flex-wrap gap-3 mb-6">
+        <div class="inline-flex items-center px-4 py-2 rounded-full border border-primary/20 bg-primary/10 text-primary">
+            <span class="font-label-caps text-label-caps uppercase tracking-widest">
+                Available For Freelance Work
+            </span>
+        </div>
+
+        <div class="inline-flex items-center px-4 py-2 rounded-full border border-secondary/20 bg-secondary/10 text-secondary">
+            <span class="material-symbols-outlined text-sm">public</span>
+            <span class="ml-2 font-label-caps text-label-caps uppercase tracking-widest">
+                Based In Egypt
+            </span>
+        </div>
+    </div>
+
+    <h1 class="reveal-2 font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface leading-tight mb-4">
+        Hi, I'm
+        <span class="text-primary glitch-text">
+            Andrew
+        </span>
+    </h1>
+
+    <h2 class="reveal-2 font-code-sm text-2xl md:text-4xl text-secondary mb-6">
+        <span class="typewriter-text typewriter-line-1 cursor-blink font-bold">> Full Stack Web Developer</span>
+    </h2>
+
+    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 reveal-3 max-w-xl">
+        Crafting modern websites and digital experiences with clean code, responsive design,
+        and creative solutions. 
+    </p>
+
+    <div class="reveal-3 flex flex-col sm:flex-row gap-4">
+        <a href="#projects"
+           class="bg-primary text-on-primary font-bold px-8 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(164,230,255,0.4)] transition-all flex items-center justify-center gap-2">
+            View Projects
+            <span class="material-symbols-outlined text-xl">arrow_forward</span>
+        </a>
+
+        <a href="#contact"
+           class="glass-card text-on-surface font-semibold px-8 py-4 rounded-xl hover:bg-white/5 transition-all flex items-center justify-center">
+            Contact Me
+        </a>
+    </div>
 </div>
-<h1 class="reveal-2 font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 leading-tight cursor-default">
-<span class="glitch-text">Hi, I'm Andrew</span> <br> <span class="typewriter-text typewriter-line-1"> &gt; Web Developer</span></h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 reveal-3 cursor-blink">
-<span>Crafting modern websites and digital experiences with clean code, responsive design,<br> and creative solutions.</span>
-</p>
-<div class="reveal-3 flex flex-col sm:flex-row gap-4">
-<button onclick="window.location.href='#projects'" class="bg-primary text-on-primary font-bold px-8 py-4 rounded-xl active:scale-95 duration-150 transition-all font-body-md text-body-md flex items-center justify-center gap-2">
-View Projects
-<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-</button>
-<button onclick="window.location.href='#contact'" class="glass-card text-on-surface font-semibold px-8 py-4 rounded-xl active:scale-95 duration-150 transition-all font-body-md text-body-md hover:bg-white/5">
-Contact Me
-</button>
+<div id="canvas-container" class="w-full pt-16 max-w-lg aspect-square relative z-10 floating-element">
 </div>
 </div>
-</div>
-<!-- 3D Decorative Elements -->
-<div class="absolute top-1/2 right-10 -translate-y-1/2 w-1/3 h-2/3 bg-primary/5 blur-[120px] rounded-full"></div>
-<div class="hidden lg:block absolute top-1/4 right-20 floating-element text-primary/20 font-mono text-8xl pointer-events-none select-none">
-    &lt;/&gt;
-</div>
-<div class="hidden lg:block absolute bottom-1/4 right-1/3 floating-element text-secondary/20 font-mono text-6xl pointer-events-none select-none" style="animation-delay: -2s;">
-    { ; }
-</div>
+<script>
+        (function() {
+            const container = document.getElementById('canvas-container');
+            if (!container) return;
+
+            const scene = new THREE.Scene();
+            const width = container.offsetWidth || 500;
+            const height = container.offsetHeight || 500;
+            const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            scene.add(camera); // Required to parent objects to camera
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.enableZoom = false;
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = -0.5;
+
+            camera.position.z = 4;
+
+            // Lights - Balanced setup to remove harsh "night effect" and ensure globe is visible from all sides
+            const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+            scene.add(ambientLight);
+            
+            const sunLight = new THREE.DirectionalLight(0xffffff, 1.5);
+            sunLight.position.set(5, 3, 5);
+            scene.add(sunLight);
+
+            const fillLight = new THREE.DirectionalLight(0xa4e6ff, 0.8); // Subtle blue tint from the back
+            fillLight.position.set(-5, -3, -5);
+            scene.add(fillLight);
+
+            // Textures
+            const textureLoader = new THREE.TextureLoader();
+            
+            // Using placeholder-like high-quality generic assets
+            const earthTexture = textureLoader.load('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg');
+            const bumpMap = textureLoader.load('https://unpkg.com/three-globe/example/img/earth-topology.png');
+            const specMap = textureLoader.load('https://unpkg.com/three-globe/example/img/earth-water-mask.png');
+            const cloudTexture = textureLoader.load('https://threejs.org/examples/textures/planets/earth_clouds_2048.png');
+
+            // Earth
+            const earthGeometry = new THREE.SphereGeometry(1.5, 64, 64);
+            const earthMaterial = new THREE.MeshPhongMaterial({
+                map: earthTexture,
+                bumpMap: bumpMap,
+                bumpScale: 0.05, 
+                specularMap: null, // Ensure no specular map is contributing to highlights
+                specular: new THREE.Color(0x000000),
+                shininess: 0
+            });
+            const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
+            scene.add(earthMesh);
+
+            // Egypt Marker
+            const markerLat = 26.8206;
+            const markerLon = 30.8025;
+            const radius = 1.5;
+            const mPhi = (90 - markerLat) * (Math.PI / 180);
+            const mTheta = (markerLon + 180) * (Math.PI / 180);
+            const mPos = new THREE.Vector3(
+                -(radius * Math.sin(mPhi) * Math.cos(mTheta)),
+                radius * Math.cos(mPhi),
+                radius * Math.sin(mPhi) * Math.sin(mTheta)
+            );
+
+            // Create marker elements
+            const markerGroup = new THREE.Group();
+            
+            // Central diamond marker (Octahedron for a tech-node look)
+            const dot = new THREE.Mesh(
+                new THREE.OctahedronGeometry(0.025, 0), 
+                new THREE.MeshStandardMaterial({ 
+                    color: 0xa4e6ff, emissive: 0xa4e6ff, emissiveIntensity: 2 
+                })
+            );
+            dot.position.copy(mPos);
+            markerGroup.add(dot);
+
+            // Pulsing ring
+            const ringMaterial = new THREE.MeshStandardMaterial({
+                color: 0xa4e6ff,
+                emissive: 0xa4e6ff, // Emissive color for glow
+                emissiveIntensity: 0.8, // Base intensity
+                transparent: true,
+                opacity: 0.6,
+                side: THREE.DoubleSide
+            });
+            const ring = new THREE.Mesh(new THREE.RingGeometry(0.03, 0.06, 32), ringMaterial);
+            ring.position.copy(mPos.clone().multiplyScalar(1.002));
+            ring.lookAt(mPos.clone().multiplyScalar(2));
+            markerGroup.add(ring);
+
+            // Add "LOCATION" Label with a custom tech-badge shape
+            const labelCanvas = document.createElement('canvas');
+            labelCanvas.width = 350; // Increased width for better margin
+            labelCanvas.height = 128;
+            const lCtx = labelCanvas.getContext('2d');
+            
+            // Draw Terminal-style badge
+            lCtx.fillStyle = 'rgba(12, 19, 36, 0.9)';
+            lCtx.strokeStyle = '#a4e6ff';
+            lCtx.lineWidth = 2;
+            const cx = 175, cy = 48, bw = 240, bh = 80;
+
+            // Window Box
+            lCtx.fillRect(cx - bw/2, cy - bh/2, bw, bh);
+            lCtx.strokeRect(cx - bw/2, cy - bh/2, bw, bh);
+
+            // Header Bar
+            lCtx.fillStyle = 'rgba(164, 230, 255, 0.1)';
+            lCtx.fillRect(cx - bw/2, cy - bh/2, bw, 24);
+            lCtx.strokeRect(cx - bw/2, cy - bh/2, bw, 24);
+
+            // Terminal Header Text
+            lCtx.font = '14px Geist Mono, monospace';
+            lCtx.fillStyle = '#a4e6ff';
+            lCtx.textAlign = 'left';
+            lCtx.fillText('MISSION_LOG.exe', cx - bw/2 + 10, cy - bh/2 + 18);
+
+            // Command Prompt Text
+            lCtx.font = 'Bold 22px Geist Mono, monospace';
+            lCtx.fillStyle = '#a4e6ff';
+            lCtx.fillText('> EGYPT_NODE_', cx - bw/2 + 12, cy + 22);
+
+            const labelTexture = new THREE.CanvasTexture(labelCanvas);
+            const labelMaterial = new THREE.SpriteMaterial({ 
+                map: labelTexture, 
+                transparent: true,
+                depthTest: false,
+                depthWrite: false
+            });
+            const labelSprite = new THREE.Sprite(labelMaterial);
+            labelSprite.renderOrder = 999;
+            
+            // Position fixed at top-right relative to camera
+            labelSprite.position.set(0.7, 0.9, -2.5); // Moved higher and slightly left
+            labelSprite.scale.set(0.8, 0.3, 1);
+            camera.add(labelSprite);
+
+            // Create the tiny connector line
+            const lineMaterial = new THREE.LineBasicMaterial({ 
+                color: 0xa4e6ff, 
+                transparent: true, 
+                opacity: 0.4,
+                depthTest: false,
+                depthWrite: false
+            });
+            const connectorLine = new THREE.Line(new THREE.BufferGeometry(), lineMaterial);
+            connectorLine.renderOrder = 998;
+            scene.add(connectorLine);
+
+            earthMesh.add(markerGroup);
+
+            // Clouds
+            const cloudGeometry = new THREE.SphereGeometry(1.52, 64, 64);
+            const cloudMaterial = new THREE.MeshLambertMaterial({ // Ensure no specular on clouds
+                map: cloudTexture,
+                transparent: true,
+                opacity: 0.4,
+                depthWrite: false
+            });
+            const cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
+            scene.add(cloudMesh);
+
+            // Starfield
+            const starGeometry = new THREE.BufferGeometry();
+            const starMaterial = new THREE.PointsMaterial({ color: 0xcccccc, size: 0.05 }); // Smaller, slightly dimmer stars
+            const starVertices = [];
+            const starCount = 1500; // Adjusted count for visual impact and performance
+            const minStarDistance = 60; // Move stars far away so they don't overlap the globe
+            const maxStarDistance = 150;
+
+            for(let i = 0; i < starCount; i++) {
+                const distance = minStarDistance + Math.random() * (maxStarDistance - minStarDistance);
+                const theta = 2 * Math.PI * Math.random();
+                const phi = Math.acos(2 * Math.random() - 1);
+
+                const x = distance * Math.sin(phi) * Math.cos(theta);
+                const y = distance * Math.sin(phi) * Math.sin(theta);
+                const z = distance * Math.cos(phi);
+                starVertices.push(x, y, z);
+            }
+            starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
+            const stars = new THREE.Points(starGeometry, starMaterial);
+            scene.add(stars);
+
+            const markerWorldPos = new THREE.Vector3();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                earthMesh.rotation.y -= 0.001;
+                cloudMesh.rotation.y -= 0.0015;
+                
+                // Subtle pulse animation for the Egypt marker ring
+                if (ring) {
+                    const pulse = 0.5 + Math.sin(Date.now() * 0.005) * 0.5; // Animates between 0.5 and 1.0
+                    ring.material.emissiveIntensity = pulse;
+                    ring.material.opacity = 0.4 + pulse * 0.4; // Base 0.4, grows to 0.8
+                }
+
+                // Update connector line and visibility
+                if (dot) {
+                    dot.getWorldPosition(markerWorldPos);
+
+                    labelSprite.visible = true;
+                    connectorLine.visible = true;
+
+                    const labelWorldPos = new THREE.Vector3().setFromMatrixPosition(labelSprite.matrixWorld);
+                    connectorLine.geometry.setFromPoints([labelWorldPos, markerWorldPos]);
+                }
+
+                controls.update();
+                renderer.render(scene, camera);
+            }
+
+            window.addEventListener('resize', () => {
+                camera.aspect = container.offsetWidth / container.offsetHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.offsetWidth, container.offsetHeight);
+            });
+
+            animate();
+        })();
+    </script>
+
 </section>
 <!-- Tech Stack Bento Section -->
 <section id="tech" class="py-section-gap bg-surface-container-lowest">
@@ -590,13 +838,6 @@ Contact Me
     closeMenu.addEventListener('click', () => overlay.classList.add('translate-x-full'));
     overlay.querySelectorAll('a').forEach(link => link.addEventListener('click', () => overlay.classList.add('translate-x-full')));
 
-    // Theme Toggle Functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark');
-        themeToggle.querySelector('span').textContent = isDark ? 'dark_mode' : 'light_mode';
-    });
-
     // Scroll Spy: Highlight nav links based on scroll position
     const observerOptions = {
         root: null,
@@ -687,6 +928,7 @@ Contact Me
     let lastDx = 1;
     let lastDy = 0;
     let lastTime = 0;
+    let gameLoopId = null;
     let gameSpeed = 100; // ms per move
 
     function resizeCanvas() {
@@ -736,7 +978,7 @@ Contact Me
 
     function animate(timestamp) {
         if (!isPlaying) return;
-        requestAnimationFrame(animate);
+        gameLoopId = requestAnimationFrame(animate);
 
         if (timestamp - lastTime < gameSpeed) return;
         lastTime = timestamp;
@@ -754,7 +996,8 @@ Contact Me
 
         if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows ||
             snake.some(seg => seg.x === head.x && seg.y === head.y)) {
-            return gameOver();
+            gameOver();
+            return;
         }
 
         snake.unshift(head);
@@ -775,23 +1018,28 @@ Contact Me
         const rows = Math.floor(gameCanvas.height / GRID_SIZE);
         playerX = Math.max(0, Math.min(cols - 1, playerX + dx));
         
-        if (Math.random() < 0.9) bugs.push({ x: Math.floor(Math.random() * cols), y: 0 });
+        if (Math.random() < 0.18) bugs.push({ x: Math.floor(Math.random() * cols), y: 0 });
 
         for (let i = bugs.length - 1; i >= 0; i--) {
             bugs[i].y += 1;
-            if (bugs[i].y === rows - 1 && bugs[i].x === playerX) return gameOver();
+            if (bugs[i].y === rows - 1 && bugs[i].x === playerX) {
+                drawDodger(cols, rows);
+                gameOver();
+                return;
+            }
             if (bugs[i].y >= rows) {
                 bugs.splice(i, 1);
                 score += 1;
                 gameScoreElement.textContent = `Score: ${score.toString().padStart(4, '0')}`;
-                gameSpeed = Math.max(40, 50 - (score / 10));
+                gameSpeed = Math.max(35, 50 - Math.floor(score / 20));
             }
         }
         drawDodger(cols, rows);
     }
 
     function drawSnake(cols, rows) {
-        ctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
+        ctx.fillStyle = '#0c1324';
+        ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
         const cellW = gameCanvas.width / cols;
         const cellH = gameCanvas.height / rows;
         ctx.fillStyle = '#ffb4ab'; // Food
@@ -805,7 +1053,8 @@ Contact Me
     }
 
     function drawDodger(cols, rows) {
-        ctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
+        ctx.fillStyle = '#0c1324';
+        ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
         const cellW = gameCanvas.width / cols;
         const cellH = gameCanvas.height / rows;
         ctx.fillStyle = '#a4e6ff'; // Player
@@ -816,6 +1065,7 @@ Contact Me
 
     function gameOver() {
         isPlaying = false;
+        if (gameLoopId) cancelAnimationFrame(gameLoopId);
         document.body.style.overflow = '';
         gameOverlayTitle.textContent = "KERNEL_PANIC";
         gameOverlayDesc.textContent = `Final Score: ${score.toString().padStart(4, '0')}. Re-execute?`;
@@ -824,14 +1074,20 @@ Contact Me
     }
 
     function startGame() {
+        if (gameLoopId) cancelAnimationFrame(gameLoopId);
         isPlaying = true;
-        lastTime = 0;
+        lastTime = performance.now();
         document.body.style.overflow = 'hidden';
         gameOverlay.style.opacity = '0';
         gameOverlay.style.pointerEvents = 'none';
         gameScoreElement.textContent = `Score: 0000`;
-        if (currentGame === 'snake') spawnFood();
-        animate(0);
+        
+        const cols = Math.floor(gameCanvas.width / GRID_SIZE);
+        const rows = Math.floor(gameCanvas.height / GRID_SIZE);
+        if (currentGame === 'snake') { spawnFood(); drawSnake(cols, rows); }
+        else { drawDodger(cols, rows); }
+        
+        animate(performance.now());
     }
 
     startSnakeBtn.addEventListener('click', () => {
