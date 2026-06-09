@@ -1110,11 +1110,13 @@
     }
 
     function updateDodger() {
+        const isDesktop = window.innerWidth > 1024;
         const cols = Math.floor(gameCanvas.width / GRID_SIZE);
         const rows = Math.floor(gameCanvas.height / GRID_SIZE);
         playerX = Math.max(0, Math.min(cols - 1, playerX + dx));
         
-        if (Math.random() < 0.18) bugs.push({ x: Math.floor(Math.random() * cols), y: 0 });
+        const spawnRate = isDesktop ? 1.1 : 0.3;
+        if (Math.random() < spawnRate) bugs.push({ x: Math.floor(Math.random() * cols), y: 0 });
 
         for (let i = bugs.length - 1; i >= 0; i--) {
             bugs[i].y += 1;
@@ -1127,7 +1129,6 @@
                 bugs.splice(i, 1);
                 score += 1;
                 gameScoreElement.textContent = `Score: ${score.toString().padStart(4, '0')}`;
-                gameSpeed = Math.max(35, 50 - Math.floor(score / 20));
             }
         }
         drawDodger(cols, rows);
@@ -1196,7 +1197,8 @@
 
     startDodgerBtn.addEventListener('click', () => {
         currentGame = 'dodger';
-        score = 0; gameSpeed = 50; dx = 0; bugs = [];
+        const isDesktop = window.innerWidth > 1024;
+        score = 0; gameSpeed = isDesktop ? 40 : 50; dx = 0; bugs = [];
         playerX = Math.floor(Math.floor(gameCanvas.width / GRID_SIZE) / 2);
         terminalTitle.textContent = 'terminal — bug_dodger.sh';
         startGame();
