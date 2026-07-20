@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>DevPortfolio</title>
+<title>Andrew Milad | Full Stack Developer</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Inter:wght@400;500;600&amp;family=Geist+Mono:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
 <script src="https://unpkg.com/three@0.145.0/examples/js/controls/OrbitControls.js"></script>
 <script type="text/javascript" src="assets/contact-utility.js" onerror="console.warn('Local Email Service failed to load. Falling back to CDN.'); this.onerror=null; this.src='https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';"></script>
@@ -15,191 +15,60 @@
         darkMode: "class",
         theme: {
           extend: {
-            "colors": {
-                    "on-tertiary-container": "#4c4f51",
-                    "tertiary-fixed-dim": "#c4c7c9",
-                    "on-error-container": "#ffdad6",
-                    "on-primary-fixed": "#001f28",
-                    "on-error": "#690005",
-                    "primary-container": "#00d1ff",
-                    "on-primary-fixed-variant": "#004e60",
-                    "surface-container-low": "#151b2d",
-                    "surface": "#0c1324",
-                    "tertiary": "#dadddf",
-                    "on-surface": "#dce1fb",
-                    "on-background": "#dce1fb",
-                    "on-secondary-fixed-variant": "#2f2ebe",
-                    "surface-variant": "#2e3447",
-                    "surface-container-high": "#23293c",
-                    "secondary-fixed-dim": "#c0c1ff",
-                    "secondary-container": "#3131c0",
-                    "on-secondary": "#1000a9",
-                    "on-secondary-container": "#b0b2ff",
-                    "error-container": "#93000a",
-                    "background": "#0c1324",
-                    "tertiary-container": "#bec1c3",
-                    "surface-container-highest": "#2e3447",
-                    "secondary": "#c0c1ff",
-                    "primary-fixed-dim": "#4cd6ff",
-                    "on-primary-container": "#00566a",
-                    "on-tertiary-fixed": "#191c1e",
-                    "primary": "#a4e6ff",
-                    "outline": "#859399",
-                    "on-surface-variant": "#bbc9cf",
-                    "primary-fixed": "#b7eaff",
-                    "surface-bright": "#33394c",
-                    "surface-tint": "#4cd6ff",
-                    "outline-variant": "#3c494e",
-                    "surface-container": "#191f31",
-                    "on-tertiary": "#2d3133",
-                    "surface-container-lowest": "#070d1f",
-                    "error": "#ffb4ab",
-                    "tertiary-fixed": "#e0e3e5",
-                    "surface-dim": "#0c1324",
-                    "secondary-fixed": "#e1e0ff",
-                    "inverse-surface": "#dce1fb",
-                    "inverse-primary": "#00677f",
-                    "on-primary": "#003543",
-                    "on-secondary-fixed": "#07006c",
-                    "on-tertiary-fixed-variant": "#444749",
-                    "inverse-on-surface": "#2a3043"
+            colors: {
+              background: "#000000",
+              foreground: "#ffffff",
+              muted: "#111111",
+              "muted-foreground": "#888888",
+              primary: "#a4e6ff",
+              "primary-foreground": "#000000",
+              secondary: "#c0c1ff",
+              "secondary-foreground": "#000000",
+              border: "rgba(255,255,255,0.1)",
+              card: "#0a0a0a",
+              "card-foreground": "#ffffff",
             },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ["Geist Mono", "monospace"],
             },
-            "spacing": {
-                    "gutter": "24px",
-                    "container-max": "1200px",
-                    "margin-desktop": "80px",
-                    "base": "8px",
-                    "section-gap": "80px",
-                    "margin-mobile": "20px"
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              "2xl": "1.5rem",
+              full: "9999px",
             },
-            "fontFamily": {
-                    "body-lg": ["Inter"],
-                    "display-lg-mobile": ["Geist Mono"],
-                    "body-md": ["Inter"],
-                    "headline-md": ["Geist Mono"],
-                    "label-caps": ["Geist Mono"],
-                    "display-lg": ["Geist Mono"],
-                    "code-sm": ["Geist Mono"]
+            maxWidth: {
+              container: "1200px",
             },
-            "fontSize": {
-                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "800"}],
-                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
-                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "700"}],
-                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
-                    "code-sm": ["14px", {"lineHeight": "1.4", "fontWeight": "500"}]
-            }
           },
         },
       }
     </script>
 <style>
-        html {
-            scroll-behavior: smooth;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; font-family: 'Inter', sans-serif; }
+
+        @keyframes shine {
+          0% { background-position: 200% center; }
+          100% { background-position: -200% center; }
         }
-        body {
-            overflow-x: hidden;
+        .shine-word {
+          background: linear-gradient(90deg, #888888 40%, #ffffff 50%, #888888 60%);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: shine 4s linear infinite;
         }
 
-        .glass-card {
-            background: rgba(15, 23, 42, 0.7);
+        .glass {
+            background: rgba(10, 10, 10, 0.7);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .hero-glow {
-            background: radial-gradient(circle at 50% 50%, rgba(0, 209, 255, 0.15) 0%, transparent 70%);
-        }
-
-        /* 3D Depth Classes */
-        .depth-layer {
-            transform-style: preserve-3d;
-            transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1);
-        }
-
-        .tilt-card {
-            transition: transform 0.1s ease-out, box-shadow 0.4s ease;
-            transform-style: preserve-3d;
-        }
-
-        .tilt-card:hover {
-            box-shadow: 0 25px 50px -12px rgba(0, 209, 255, 0.2);
-        }
-
-        .tilt-content {
-            transform: translateZ(20px);
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-
-        .floating-element {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .parallax-bg {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-            background: 
-                radial-gradient(circle at center, transparent 0%, rgba(12, 19, 36, 0.4) 100%),
-                linear-gradient(rgba(164, 230, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(164, 230, 255, 0.03) 1px, transparent 1px),
-                url("data:image/svg+xml,%3Csvg width='240' height='240' viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='40' fill='%23a4e6ff' fill-opacity='0.05' font-family='Geist Mono' font-size='12'%3E%7B %7D%3C/text%3E%3Ctext x='180' y='60' fill='%23a4e6ff' fill-opacity='0.05' font-family='Geist Mono' font-size='12'%3E%3C/%3E%3C/text%3E%3Ctext x='60' y='180' fill='%23a4e6ff' fill-opacity='0.05' font-family='Geist Mono' font-size='12'%3E%3B%3C/text%3E%3Ctext x='140' y='210' fill='%23a4e6ff' fill-opacity='0.05' font-family='Geist Mono' font-size='12'%3E%28%29%20%3D%3E%3C/text%3E%3Ctext x='200' y='140' fill='%23a4e6ff' fill-opacity='0.05' font-family='Geist Mono' font-size='12'%3E01%3C/text%3E%3C/svg%3E");
-            background-size: 100% 100%, 60px 60px, 60px 60px, 480px 480px;
-            transform: translateZ(-100px) scale(2);
-            transition: transform 0.2s ease-out;
-        }
-
-        @keyframes gradient-x {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        .animate-gradient {
-            background-size: 200% 200%;
-            animation: gradient-x 5s ease infinite;
-        }
-        @keyframes reveal-up {
-            0% { transform: translateY(20px); opacity: 0; filter: blur(8px); }
-            100% { transform: translateY(0); opacity: 1; filter: blur(0); }
-        }
-        .reveal-1 { animation: reveal-up 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
-        .reveal-2 { animation: reveal-up 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.15s forwards; opacity: 0; }
-        .reveal-3 { animation: reveal-up 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.3s forwards; opacity: 0; }
-
-        .typewriter-text {
-            overflow: hidden;
-            white-space: nowrap;
-            width: 0; /* Start with zero width */
-            display: inline-block;
-            vertical-align: bottom; /* Align with text baseline */
-            letter-spacing: 0px; /* Essential for steps() alignment on monospaced fonts */
-        }
-        .typewriter-line-1 { animation: typing-1 1.2s steps(26, end) forwards; animation-delay: 0.4s; }
-        @keyframes typing-1 { from { width: 0; } to { width: 100%; } }
-        
-        .typewriter-line-2 { animation: typing-2 1s steps(22, end) forwards; animation-delay: 1.3s; }
-        @keyframes typing-2 { from { width: 0; } to { width: 100%; } }
-
-        .cursor-blink::after {
-            content: '_';
-            animation: blink 1s step-end infinite;
-            animation-delay: 1.6s; /* Sync with end of typing-line-1 (0.4s delay + 1.2s duration) */
-            animation-fill-mode: forwards; /* Keep final state */
-            color: currentColor;
-            margin-left: 4px;
-            opacity: 0; /* Start hidden */
-        }
-        @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
 
         .nav-link {
             position: relative;
@@ -208,755 +77,1090 @@
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -4px;
-            left: 0;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0%;
             height: 2px;
-            background: currentColor;
+            background: #a4e6ff;
+            border-radius: 2px;
             transition: width 0.3s ease;
         }
-        .nav-link:hover::after { width: 100%; }
-        .nav-link.active::after { width: 100%; }
+        .nav-link:hover::after,
+        .nav-link.active::after { width: 60%; }
+        .nav-link.active { color: #a4e6ff !important; }
 
-        /* Gaming & Anime Effects */
-        .scanlines {
+        @keyframes reveal-up {
+            0% { transform: translateY(24px); opacity: 0; filter: blur(4px); }
+            100% { transform: translateY(0); opacity: 1; filter: blur(0); }
+        }
+        .reveal-1 { animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .reveal-2 { animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards; opacity: 0; }
+        .reveal-3 { animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; opacity: 0; }
+        .reveal-4 { animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards; opacity: 0; }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
+
+        .typewriter-text {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        .typewriter-line-1 { animation: typing-1 1.2s steps(26, end) forwards; animation-delay: 0.4s; }
+        @keyframes typing-1 { from { width: 0; } to { width: 100%; } }
+        .cursor-blink::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+            animation-delay: 1.6s;
+            color: currentColor;
+            margin-left: 4px;
+            opacity: 0;
+        }
+        @keyframes blink { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #a4e6ff 0%, #c0c1ff 50%, #a4e6ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glitch-text {
+            position: relative;
+            animation: glitch-skew 1s infinite linear alternate-reverse;
+        }
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #a4e6ff 0%, #c0c1ff 50%, #a4e6ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            overflow: hidden;
+        }
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            animation: glitch-anim-1 2.5s infinite linear reverse;
+        }
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff9;
+            animation: glitch-anim-2 1.5s infinite linear reverse;
+        }
+
+        @keyframes glitch-skew {
+            0% { transform: skewX(0deg); }
+            5% { transform: skewX(0.5deg); }
+            10% { transform: skewX(-0.5deg); }
+            15% { transform: skewX(0deg); }
+            80% { transform: skewX(0deg); }
+            85% { transform: skewX(1deg); }
+            90% { transform: skewX(-1deg); }
+            95% { transform: skewX(0deg); }
+            100% { transform: skewX(0deg); }
+        }
+
+        @keyframes glitch-anim-1 {
+            0% { clip-path: inset(10% 0 85% 0); } 10% { clip-path: inset(40% 0 40% 0); } 20% { clip-path: inset(90% 0 2% 0); } 30% { clip-path: inset(25% 0 60% 0); } 40% { clip-path: inset(5% 0 80% 0); } 50% { clip-path: inset(80% 0 5% 0); } 60% { clip-path: inset(30% 0 55% 0); } 70% { clip-path: inset(70% 0 10% 0); } 80% { clip-path: inset(15% 0 70% 0); } 90% { clip-path: inset(55% 0 20% 0); } 100% { clip-path: inset(95% 0 1% 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip-path: inset(80% 0 2% 0); } 5% { clip-path: inset(20% 0 70% 0); } 10% { clip-path: inset(99% 0 1% 0); } 15% { clip-path: inset(5% 0 90% 0); } 20% { clip-path: inset(75% 0 20% 0); } 25% { clip-path: inset(22% 0 75% 0); } 30% { clip-path: inset(60% 0 30% 0); } 35% { clip-path: inset(0% 0 100% 0); } 40% { clip-path: inset(81% 0 18% 0); } 45% { clip-path: inset(18% 0 81% 0); } 50% { clip-path: inset(68% 0 21% 0); } 55% { clip-path: inset(4% 0 95% 0); } 60% { clip-path: inset(94% 0 5% 0); } 65% { clip-path: inset(39% 0 41% 0); } 70% { clip-path: inset(69% 0 29% 0); } 75% { clip-path: inset(10% 0 89% 0); } 80% { clip-path: inset(46% 0 45% 0); } 85% { clip-path: inset(65% 0 18% 0); } 90% { clip-path: inset(99% 0 1% 0); } 95% { clip-path: inset(23% 0 76% 0); } 100% { clip-path: inset(50% 0 23% 0); }
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee-scroll 25s linear infinite;
+            will-change: transform;
+        }
+        .marquee-track-reverse {
+            animation-direction: reverse;
+        }
+        
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .scroll-to-top {
             position: fixed;
-            inset: 0;
-            background: linear-gradient(
-                to bottom,
-                transparent 50%,
-                rgba(0, 0, 0, 0.1) 51%
-            );
-            background-size: 100% 4px;
-            z-index: 100;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 9999px;
+            background: #a4e6ff;
+            color: #003543;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(164, 230, 255, 0.3);
+            z-index: 50;
+            opacity: 0;
+            transform: translateY(1rem) scale(0.9);
+            transition: all 0.3s ease;
             pointer-events: none;
-            opacity: 0.3;
+            cursor: pointer;
+            border: none;
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        .scroll-to-top:active {
+            transform: scale(0.9);
         }
 
-        .glitch-text:hover {
-            animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
-            text-shadow: 0.05em 0 0 #ff00c1, -0.025em -0.05em 0 #00fff9,
-                         0.025em 0.05em 0 #ff00c1;
+        .project-filter-btn {
+            border-radius: 9999px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background-color: transparent;
+            padding: 0.375rem 1rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            font-weight: 500;
+            color: #888888;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .project-filter-btn:hover {
+            border-color: rgba(255,255,255,0.2);
+            color: #ffffff;
+            background-color: #111111;
+        }
+        .project-filter-btn.active {
+            border-color: #a4e6ff;
+            background-color: #a4e6ff;
+            color: #000000;
+            box-shadow: 0 4px 14px rgba(164, 230, 255, 0.2);
+        }
+        .project-list-item {
+            display: flex;
+            position: relative;
+            align-items: center;
+            gap: 1rem;
+        }
+        .project-list-item.active {
+            color: #a4e6ff;
+        }
+        .project-list-item.active > span, .project-list-item.active > svg {
+            color: #a4e6ff !important;
         }
 
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.2em;
+            background: #a4e6ff;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+        }
+        #terminal-output pre {
+            font-family: 'Geist Mono', monospace;
+            white-space: pre-wrap;
+            line-height: 1.4;
         }
 
-        .anime-card {
-            border: 2px solid transparent;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        #terminal {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
         }
-        .anime-card:hover {
-            border-color: var(--tw-primary);
-            box-shadow: 8px 8px 0px 0px rgba(0, 209, 255, 0.3);
-            transform: translate(-4px, -4px);
+        #terminal::-webkit-scrollbar {
+            width: 6px;
+        }
+        #terminal::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        #terminal::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
         }
 
         @media (max-width: 1023px) {
-            #home {
-                padding-top: 120px;
+            .typewriter-text { white-space: normal; width: auto !important; animation: none !important; }
+            .cursor-blink::after { display: none; }
+            section[id] { scroll-margin-top: 80px; }
+            #home { min-height: auto; padding-top: 100px; padding-bottom: 60px; }
+            #home .flex-col { gap: 1.5rem; }
+            #home h1 { font-size: 2.5rem !important; line-height: 1.15 !important; }
+            #home h2 { font-size: 1.2rem !important; }
+            #home p { font-size: 0.95rem !important; }
+            #home .reveal-1 .rounded-full { /* Status Badges */
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
             }
-            #home h2 {
-                font-size: 1.3rem !important;
+            #home .reveal-4 a { /* CTA Buttons */
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
             }
-            #home p {
-                font-size: 1rem !important;
+            #home .max-w-2xl {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
-            .typewriter-text {
-                white-space: normal;
-                width: auto !important;
-                animation: none !important;
-            }
-            .cursor-blink::after {
-                display: none;
-            }
-            .scanlines,
-            .parallax-bg {
-                display: none;
-            }
-            .floating-element {
-                animation: none;
-            }
-            .tilt-card {
-                transform: none !important;
-            }
+            .px-5 { padding-left: 1rem !important; padding-right: 1rem !important; }
+            #projects .grid-cols-1 { gap: 1.5rem; }
+            #projects .p-6 { padding: 1rem !important; }
+            #projects h3 { font-size: 1rem; }
+            #projects p { font-size: 0.8rem; }
+            .py-24 { padding-top: 60px !important; padding-bottom: 60px !important; }
+            .mb-16 { margin-bottom: 2.5rem !important; }
+            h2.text-3xl { font-size: 1.75rem !important; }
+            h2.text-5xl { font-size: 1.75rem !important; }
+            #tech .p-8 { padding: 1.25rem !important; }
+            #tech h3 { font-size: 1.1rem; }
+            #contact .gap-16 { gap: 2.5rem; }
+            #contact .glass.p-8 { padding: 1.25rem !important; }
+            #playground .px-6 { padding-left: 1rem !important; padding-right: 1rem !important; }
+            #playground .py-3 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
+            .scroll-to-top { bottom: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; }
         }
-
-        @media (max-width: 768px) {
-            .py-section-gap {
-                padding-top: 60px !important;
-                padding-bottom: 60px !important;
+        @media (max-width: 480px) {
+            #home h1 { font-size: 2rem !important; }
+            #home h2 { font-size: 1rem !important; }
+            #home .reveal-1 .rounded-full { /* Status Badges */
+                font-size: 0.7rem;
+                padding: 0.3rem 0.8rem;
             }
-            .glass-card {
-                border-radius: 16px;
+            #home .reveal-4 a { /* CTA Buttons */
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+                width: 100%;
             }
-            .font-headline-md {
-                font-size: 1.8rem !important;
-            }
+            .glass.p-8 { padding: 1rem !important; }
+            #main-header { top: 8px; width: 96%; }
+            #main-header nav { padding-left: 10px !important; padding-right: 10px !important; height: 44px; }
+            #main-header .text-sm { font-size: 0.75rem; }
+            #main-header .w-8.h-8 { width: 1.75rem; height: 1.75rem; font-size: 0.65rem; }
+            .grid-cols-2 { gap: 0.75rem; }
+            .glass.rounded-xl.p-5 { padding: 1rem !important; }
+            .text-3xl.font-bold.text-primary { font-size: 1.5rem; }
+            .text-xs.font-mono { font-size: 0.6rem; }
+            #projects .group .p-6 { padding: 0.75rem !important; }
+            .card-hover:hover { transform: none; }
+            #contact .rounded-2xl.p-8 { padding: 1rem !important; }
+            #contact input, #contact textarea { padding: 0.75rem !important; font-size: 0.85rem !important; }
+            #contact button.py-4 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
         }
-    </style>
+</style>
 </head>
-<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
-<!-- CRT Scanline Overlay -->
-<div class="scanlines"></div>
+<body class="bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
+<!-- 3D Starfield Background -->
+<canvas id="starfield" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
 <!-- Mobile Menu Overlay -->
-<div id="mobile-overlay" class="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl translate-x-full transition-transform duration-500 md:hidden">
-    <div class="flex flex-col items-center justify-center h-full space-y-8">
-        <a class="font-headline-md text-2xl text-on-surface hover:text-primary transition-colors" href="#home">.home()</a>
-        <a class="font-headline-md text-2xl text-on-surface hover:text-primary transition-colors" href="#tech">.tech()</a>
-        <a class="font-headline-md text-2xl text-on-surface hover:text-primary transition-colors" href="#projects">.projects()</a>
-        <a class="font-headline-md text-2xl text-on-surface hover:text-primary transition-colors" href="#playground">.play()</a>
-        <a class="font-headline-md text-2xl text-on-surface hover:text-primary transition-colors" href="#contact">.contact()</a>
-        <button id="close-menu" class="mt-8 text-on-surface-variant"><span class="material-symbols-outlined text-4xl">close</span></button>
+<div id="mobile-menu" class="fixed top-0 left-0 w-full z-[49] pt-[72px] transition-transform duration-300 ease-in-out -translate-y-full min-[851px]:hidden">
+    <div class="bg-background/90 backdrop-blur-xl border-b border-border">
+        <div class="flex flex-col p-4 space-y-1">
+            <a class="font-mono text-lg text-muted-foreground hover:text-primary transition-colors py-3 px-4 rounded-lg" href="#home">.home()</a>
+            <a class="font-mono text-lg text-muted-foreground hover:text-primary transition-colors py-3 px-4 rounded-lg" href="#tech">.tech()</a>
+            <a class="font-mono text-lg text-muted-foreground hover:text-primary transition-colors py-3 px-4 rounded-lg" href="#projects">.projects()</a>
+            <a class="font-mono text-lg text-muted-foreground hover:text-primary transition-colors py-3 px-4 rounded-lg" href="#playground">.play()</a>
+            <a class="font-mono text-lg text-muted-foreground hover:text-primary transition-colors py-3 px-4 rounded-lg" href="#contact">.contact()</a>
+        </div>
     </div>
 </div>
-<!-- TopNavBar -->
-<header id="main-header" class="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-container-max z-50 glass-card rounded-2xl border border-white/10 shadow-2xl transition-all duration-300 hover:border-primary/40 hover:scale-[1.005] hover:bg-surface/80">
-<nav class="flex justify-between items-center w-full px-6 md:px-10 py-4 mx-auto">
-<div class="font-headline-md text-headline-md font-extrabold text-on-surface tracking-tight hover:text-primary transition-colors cursor-default">./DevPortfolio</div>
-<div class="hidden md:flex items-center space-x-8">
-<a class="nav-link text-on-surface-variant font-medium hover:text-primary font-body-md text-body-md" href="#home">./home</a>
-<a class="nav-link text-on-surface-variant font-medium hover:text-primary font-body-md text-body-md" href="#tech">./tech</a>
-<a class="nav-link text-on-surface-variant font-medium hover:text-primary font-body-md text-body-md" href="#projects">./projects</a>
-<a class="nav-link text-on-surface-variant font-medium hover:text-primary font-body-md text-body-md" href="#playground">./play</a>
-<a class="nav-link text-on-surface-variant font-medium hover:text-primary font-body-md text-body-md" href="#contact">./contact</a>
-</div>
-<button onclick="window.location.href='#contact'" class="hidden sm:block bg-primary text-on-primary font-bold px-6 py-2 rounded-lg active:scale-95 duration-150 transition-all font-body-md text-body-md">Hire Me</button>
-<button id="menu-toggle" class="md:hidden flex items-center text-on-surface ml-2">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
+
+<!-- Navbar -->
+<header id="main-header" class="fixed top-0 left-0 w-full z-50 glass transition-all duration-300">
+<nav class="flex justify-between items-center w-full px-4 sm:px-6 lg:px-8 py-4 mx-auto max-w-7xl">
+    <div class="flex-1 flex justify-start">
+        <a class="flex items-center gap-3" href="#home">
+            <div class="w-10 h-10 rounded-full border border-border object-cover bg-primary/20 flex items-center justify-center text-primary font-bold font-mono text-sm">A</div>
+            <div class="hidden sm:flex flex-col leading-tight">
+                <span class="text-sm font-bold text-foreground">Andrew Milad</span>
+                <span class="text-[11px] text-muted-foreground">Full Stack Developer</span>
+            </div>
+        </a>
+    </div>
+    <div class="flex-1 flex justify-center">
+        <div class="hidden min-[851px]:flex items-center gap-1 border px-2 py-1 backdrop-blur-sm rounded-full border-border bg-card/40">
+            <a class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-foreground transition-colors duration-300 hover:bg-muted" href="#home">Home</a>
+            <a class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-foreground transition-colors duration-300 hover:bg-muted" href="#tech">Tech</a>
+            <a class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-foreground transition-colors duration-300 hover:bg-muted" href="#projects">Projects</a>
+            <a class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-foreground transition-colors duration-300 hover:bg-muted" href="#playground">Play</a>
+            <a class="nav-link rounded-full px-4 py-1.5 text-sm font-medium text-foreground transition-colors duration-300 hover:bg-muted" href="#contact">Contact</a>
+        </div>
+        <div class="min-[851px]:hidden">
+            <span class="font-mono text-foreground">>_DevPortfolio</span>
+        </div>
+    </div>
+    <div class="flex-1 flex justify-end">
+        <div class="hidden min-[851px]:flex items-center gap-2">
+            <a href="#contact" class="flex items-center gap-1.5 rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90">
+                Hire Me
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right h-3.5 w-3.5" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </a>
+        </div>
+        <div class="min-[851px]:hidden flex items-center">
+            <button id="menu-toggle" class="flex items-center text-foreground relative w-9 h-9 justify-center">
+                <span class="material-symbols-outlined absolute transition-all duration-300" id="menu-icon-open">menu</span>
+                <span class="material-symbols-outlined absolute transition-all duration-300 opacity-0 rotate-90" id="menu-icon-close">close</span>
+            </button>
+        </div>
+    </div>
 </nav>
 </header>
-<div class="parallax-bg"></div>
+
 <!-- Hero Section -->
-<section id="home" class="relative pt-16 pb-section-gap overflow-hidden hero-glow">
-<div class="w-[95%] max-w-container-max mx-auto px-6 md:px-10">
-<div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-<div class="max-w-3xl relative z-10">
-    <div class="reveal-1 flex flex-wrap gap-3 mb-6">
-        <div class="inline-flex items-center px-4 py-2 rounded-full border border-primary/20 bg-primary/10 text-primary">
-            <span class="font-label-caps text-label-caps uppercase tracking-widest">
-                Available For Freelance Work
-            </span>
-        </div>
-
-        <div class="inline-flex items-center px-4 py-2 rounded-full border border-secondary/20 bg-secondary/10 text-secondary">
-            <span class="material-symbols-outlined text-sm">public</span>
-            <span class="ml-2 font-label-caps text-label-caps uppercase tracking-widest">
-                Based In Egypt
-            </span>
+<section id="home" class="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden">
+    <div class="w-[95%] max-w-container mx-auto px-5 md:px-8 relative z-10">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-16">
+            <div class="max-w-2xl lg:max-w-none lg:w-[55%] lg:shrink-0">
+                <div class="reveal-1 mb-6 flex flex-row flex-wrap justify-center sm:justify-start gap-3">
+                    <div class="border border-border/80 rounded-full px-4 py-2 flex items-center gap-2 text-sm text-foreground font-mono border-primary/50 bg-primary/10">
+                        <span class="relative flex h-2 w-2">
+                            <span class="absolute inline-flex h-full w-full animate-ping rounded bg-green-500 opacity-75"></span>
+                            <span class="relative inline-block h-full w-full rounded bg-green-500"></span>
+                        </span>
+                        Available for work
+                    </div>
+                    <div class="border border-border/80 rounded-full px-4 py-2 flex items-center gap-1.5 text-sm text-foreground font-mono border-secondary/50 bg-secondary/10">
+                        <span class="material-symbols-outlined text-base">location_on</span>
+                        Based In Egypt
+                    </div>
+                </div>
+                <div class="reveal-2 mb-6">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
+                        Hi, I'm <span class="gradient-text glitch-text" data-text="Andrew">Andrew</span>
+                    </h1>
+                </div>
+                <h2 class="reveal-2 font-mono text-xl md:text-3xl text-secondary mb-6">
+                    <span class="typewriter-text typewriter-line-1 cursor-blink font-semibold">> Full Stack Web Developer</span>
+                </h2>
+                <p class="reveal-3 text-base md:text-lg text-muted-foreground mb-8 max-w-lg leading-relaxed">
+                    Crafting modern websites and digital experiences with clean code, responsive design,
+                    and creative solutions.
+                </p>
+                <div class="reveal-4 flex flex-col sm:flex-row gap-4">
+                    <a href="#projects" class="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold px-8 py-3.5 rounded-full hover:shadow-[0_0_30px_rgba(164,230,255,0.3)] transition-all active:scale-95">
+                        View Projects
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                    </a>
+                    <a href="#contact" class="inline-flex items-center justify-center gap-2 border border-border/50 text-foreground font-medium px-8 py-3.5 rounded-full hover:bg-white/5 transition-all active:scale-95">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+            <div id="code-background" class="hidden lg:flex absolute inset-0 -z-10 opacity-30 lg:static lg:z-auto lg:opacity-100 lg:w-[45%] lg:h-[500px] font-mono bg-black/50 rounded-xl border border-border/80 overflow-hidden glass flex-col">
+                <div class="bg-card/50 px-4 py-2 border-b border-white/5 flex items-center gap-2 shrink-0">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="ml-4 text-sm text-muted-foreground">bash</span>
+                </div>
+                <div id="terminal" class="p-4 flex-grow overflow-y-auto text-sm leading-relaxed" onclick="document.getElementById('terminal-input').focus()">
+                    <div id="terminal-output"></div>
+                    <div class="flex">
+                        <span class="text-secondary shrink-0">user@andrew.dev:~$</span><span class="pl-2" id="terminal-input-display"></span><span class="terminal-cursor"></span>
+                    </div>
+                    <input type="text" id="terminal-input" class="absolute opacity-0" autofocus>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 
-    <h1 class="reveal-2 font-display-lg-mobile md:font-display-lg text-3xl md:text-4xl font-extrabold text-on-surface leading-tight mb-4">
-        Hi, I'm
-        <span class="text-primary glitch-text">
-            Andrew
-        </span>
-    </h1>
+<!-- Three.js Starfield Background -->
+<script id="starfield-script">
+(function() {
+    const canvas = document.getElementById('starfield');
+    if (!canvas) return;
+    
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    
+    const starsGeometry = new THREE.BufferGeometry();
+    const starsCount = 5000;
+    const posArray = new Float32Array(starsCount * 3);
+    const colorsArray = new Float32Array(starsCount * 3);
+    
+    for (let i = 0; i < starsCount * 3; i += 3) {
+        posArray[i] = (Math.random() - 0.5) * 100;
+        posArray[i + 1] = (Math.random() - 0.5) * 100;
+        posArray[i + 2] = (Math.random() - 0.5) * 100;
+        
+        const color = new THREE.Color();
+        color.setHSL(0.6, 0.2, 0.8 + Math.random() * 0.2);
+        colorsArray[i] = color.r;
+        colorsArray[i + 1] = color.g;
+        colorsArray[i + 2] = color.b;
+    }
+    
+    starsGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    starsGeometry.setAttribute('color', new THREE.BufferAttribute(colorsArray, 3));
+    
+    const starsMaterial = new THREE.PointsMaterial({
+        size: 0.09,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.9,
+    });
+    
+    const starField = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(starField);
+    
+    camera.position.z = 5;
+    
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+        mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+    });
+    
+    function animate() {
+        requestAnimationFrame(animate);
+        starField.rotation.y += 0.0002;
+        starField.rotation.x += 0.0001;
+        camera.position.x += (mouseX * 0.5 - camera.position.x) * 0.05;
+        camera.position.y += (mouseY * 0.5 - camera.position.y) * 0.05;
+        camera.lookAt(scene.position);
+        renderer.render(scene, camera);
+    }
+    animate();
+    
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+})();
+</script>
 
-    <h2 class="reveal-2 font-code-sm text-2xl md:text-4xl text-secondary mb-6">
-        <span class="typewriter-text typewriter-line-1 cursor-blink font-bold">> Full Stack Web Developer</span>
-    </h2>
-
-    <p class="font-body-lg text-body-lg text-on-surface-variant mb-8 reveal-3 max-w-xl">
-        Crafting modern websites and digital experiences with clean code, responsive design,
-        and creative solutions. 
-    </p>
-
-    <div class="reveal-3 flex flex-col sm:flex-row gap-4">
-        <a href="#projects"
-           class="bg-primary text-on-primary font-bold px-8 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(164,230,255,0.4)] transition-all flex items-center justify-center gap-2">
-            View Projects
-            <span class="material-symbols-outlined text-xl">arrow_forward</span>
-        </a>
-
-        <a href="#contact"
-           class="glass-card text-on-surface font-semibold px-8 py-4 rounded-xl hover:bg-white/5 transition-all flex items-center justify-center">
-            Contact Me
-        </a>
-    </div>
-</div>
-<div id="canvas-container"
-     class="hidden lg:block w-full pt-16 max-w-lg aspect-square relative z-10 floating-element">
-</div>
-</div>
-</div>
+<!-- 3D Code Blocks Background Script -->
 <script>
-        (function() {
-            const container = document.getElementById('canvas-container');
-            if (!container) return;
+(function() {
+    const terminalContainer = document.getElementById('terminal');
+    const output = document.getElementById('terminal-output');
+    const inputDisplay = document.getElementById('terminal-input-display');
+    const input = document.getElementById('terminal-input');
 
-            const scene = new THREE.Scene();
-            const width = container.offsetWidth || 500;
-            const height = container.offsetHeight || 500;
-            const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            
-            renderer.setSize(width, height);
-            renderer.setPixelRatio(window.devicePixelRatio);
-            container.appendChild(renderer.domElement);
+    if (!terminalContainer || !output || !inputDisplay || !input) {
+        console.warn('Terminal elements not found.');
+        return;
+    }
 
-            scene.add(camera); // Required to parent objects to camera
-            const controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.enableDamping = true;
-            controls.dampingFactor = 0.05;
-            controls.enableZoom = false;
-            controls.autoRotate = true;
-            controls.autoRotateSpeed = -0.5;
+    let commandHistory = [];
+    let historyIndex = -1;
 
-            camera.position.z = 4;
+    const welcomeMessage = `Welcome to my interactive terminal.
+Type '<span class="text-primary">help</span>' to see a list of available commands.`;
 
-            // Lights - Balanced setup to remove harsh "night effect" and ensure globe is visible from all sides
-            const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
-            scene.add(ambientLight);
-            
-            const sunLight = new THREE.DirectionalLight(0xffffff, 1.5);
-            sunLight.position.set(5, 3, 5);
-            scene.add(sunLight);
-
-            const fillLight = new THREE.DirectionalLight(0xa4e6ff, 0.8); // Subtle blue tint from the back
-            fillLight.position.set(-5, -3, -5);
-            scene.add(fillLight);
-
-            // Textures
-            const textureLoader = new THREE.TextureLoader();
-            
-            // Using placeholder-like high-quality generic assets
-            const earthTexture = textureLoader.load('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg');
-            const bumpMap = textureLoader.load('https://unpkg.com/three-globe/example/img/earth-topology.png');
-            const specMap = textureLoader.load('https://unpkg.com/three-globe/example/img/earth-water-mask.png');
-            const cloudTexture = textureLoader.load('https://threejs.org/examples/textures/planets/earth_clouds_2048.png');
-
-            // Earth
-            const earthGeometry = new THREE.SphereGeometry(1.5, 64, 64);
-            const earthMaterial = new THREE.MeshPhongMaterial({
-                map: earthTexture,
-                bumpMap: bumpMap,
-                bumpScale: 0.05, 
-                specularMap: null, // Ensure no specular map is contributing to highlights
-                specular: new THREE.Color(0x000000),
-                shininess: 0
-            });
-            const earthMesh = new THREE.Mesh(earthGeometry, earthMaterial);
-            scene.add(earthMesh);
-
-            // Egypt Marker
-            const markerLat = 26.8206;
-            const markerLon = 30.8025;
-            const radius = 1.5;
-            const mPhi = (90 - markerLat) * (Math.PI / 180);
-            const mTheta = (markerLon + 180) * (Math.PI / 180);
-            const mPos = new THREE.Vector3(
-                -(radius * Math.sin(mPhi) * Math.cos(mTheta)),
-                radius * Math.cos(mPhi),
-                radius * Math.sin(mPhi) * Math.sin(mTheta)
-            );
-
-            // Create marker elements
-            const markerGroup = new THREE.Group();
-            
-            // Central diamond marker (Octahedron for a tech-node look)
-            const dot = new THREE.Mesh(
-                new THREE.OctahedronGeometry(0.025, 0), 
-                new THREE.MeshStandardMaterial({ 
-                    color: 0xa4e6ff, emissive: 0xa4e6ff, emissiveIntensity: 2 
-                })
-            );
-            dot.position.copy(mPos);
-            markerGroup.add(dot);
-
-            // Pulsing ring
-            const ringMaterial = new THREE.MeshStandardMaterial({
-                color: 0xa4e6ff,
-                emissive: 0xa4e6ff, // Emissive color for glow
-                emissiveIntensity: 0.8, // Base intensity
-                transparent: true,
-                opacity: 0.6,
-                side: THREE.DoubleSide
-            });
-            const ring = new THREE.Mesh(new THREE.RingGeometry(0.03, 0.06, 32), ringMaterial);
-            ring.position.copy(mPos.clone().multiplyScalar(1.002));
-            ring.lookAt(mPos.clone().multiplyScalar(2));
-            markerGroup.add(ring);
-
-            // Add "LOCATION" Label with a custom tech-badge shape
-            const labelCanvas = document.createElement('canvas');
-            labelCanvas.width = 350; // Increased width for better margin
-            labelCanvas.height = 128;
-            const lCtx = labelCanvas.getContext('2d');
-            
-            // Draw Terminal-style badge
-            lCtx.fillStyle = 'rgba(12, 19, 36, 0.9)';
-            lCtx.strokeStyle = '#a4e6ff';
-            lCtx.lineWidth = 2;
-            const cx = 175, cy = 48, bw = 240, bh = 80;
-
-            // Window Box
-            lCtx.fillRect(cx - bw/2, cy - bh/2, bw, bh);
-            lCtx.strokeRect(cx - bw/2, cy - bh/2, bw, bh);
-
-            // Header Bar
-            lCtx.fillStyle = 'rgba(164, 230, 255, 0.1)';
-            lCtx.fillRect(cx - bw/2, cy - bh/2, bw, 24);
-            lCtx.strokeRect(cx - bw/2, cy - bh/2, bw, 24);
-
-            // Terminal Header Text
-            lCtx.font = '14px Geist Mono, monospace';
-            lCtx.fillStyle = '#a4e6ff';
-            lCtx.textAlign = 'left';
-            lCtx.fillText('MISSION_LOG.exe', cx - bw/2 + 10, cy - bh/2 + 18);
-
-            // Command Prompt Text
-            lCtx.font = 'Bold 22px Geist Mono, monospace';
-            lCtx.fillStyle = '#a4e6ff';
-            lCtx.fillText('> EGYPT_NODE_', cx - bw/2 + 12, cy + 22);
-
-            const labelTexture = new THREE.CanvasTexture(labelCanvas);
-            const labelMaterial = new THREE.SpriteMaterial({ 
-                map: labelTexture, 
-                transparent: true,
-                depthTest: false,
-                depthWrite: false
-            });
-            const labelSprite = new THREE.Sprite(labelMaterial);
-            labelSprite.renderOrder = 999;
-            
-            // Position fixed at top-right relative to camera
-            labelSprite.position.set(0.7, 0.9, -2.5); // Moved higher and slightly left
-            labelSprite.scale.set(0.8, 0.3, 1);
-            camera.add(labelSprite);
-
-            // Create the tiny connector line
-            const lineMaterial = new THREE.LineBasicMaterial({ 
-                color: 0xa4e6ff, 
-                transparent: true, 
-                opacity: 0.4,
-                depthTest: false,
-                depthWrite: false
-            });
-            const connectorLine = new THREE.Line(new THREE.BufferGeometry(), lineMaterial);
-            connectorLine.renderOrder = 998;
-            scene.add(connectorLine);
-
-            earthMesh.add(markerGroup);
-
-            // Clouds
-            const cloudGeometry = new THREE.SphereGeometry(1.52, 64, 64);
-            const cloudMaterial = new THREE.MeshLambertMaterial({ // Ensure no specular on clouds
-                map: cloudTexture,
-                transparent: true,
-                opacity: 0.4,
-                depthWrite: false
-            });
-            const cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
-            scene.add(cloudMesh);
-
-            // Starfield
-            const starGeometry = new THREE.BufferGeometry();
-            const starMaterial = new THREE.PointsMaterial({ color: 0xcccccc, size: 0.05 }); // Smaller, slightly dimmer stars
-            const starVertices = [];
-            const starCount = 1500; // Adjusted count for visual impact and performance
-            const minStarDistance = 60; // Move stars far away so they don't overlap the globe
-            const maxStarDistance = 150;
-
-            for(let i = 0; i < starCount; i++) {
-                const distance = minStarDistance + Math.random() * (maxStarDistance - minStarDistance);
-                const theta = 2 * Math.PI * Math.random();
-                const phi = Math.acos(2 * Math.random() - 1);
-
-                const x = distance * Math.sin(phi) * Math.cos(theta);
-                const y = distance * Math.sin(phi) * Math.sin(theta);
-                const z = distance * Math.cos(phi);
-                starVertices.push(x, y, z);
+    const commands = {
+        help: () => {
+            const commandList = {
+                'help': 'Show this help message',
+                'whoami': 'Display information about me',
+                'projects': 'Navigate to the projects section',
+                'contact': 'Show contact information',
+                'clear': 'Clear the terminal screen',
+                'neofetch': 'Display system information'
+            };
+            let output = 'Available commands:\n';
+            for (const cmd in commandList) {
+                output += `  <span class="text-primary">${cmd.padEnd(10, ' ')}</span> - ${commandList[cmd]}\n`;
             }
-            starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starVertices, 3));
-            const stars = new THREE.Points(starGeometry, starMaterial);
-            scene.add(stars);
+            return `<pre>${output.trim()}</pre>`;
+        },
+        whoami: () => `Andrew Milad - Full Stack Web Developer.
+I specialize in crafting modern websites and digital experiences with clean code, responsive design, and creative solutions.
+Passionate about technology and always eager to learn new things.`,
+        projects: () => {
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+            return 'Navigating to projects...';
+        },
+        contact: () => {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            return 'Navigating to contact section...';
+        },
+        neofetch: () => {
+            const uptime = Math.floor(performance.now() / 1000);
+            return `<pre class="flex gap-4">
+<span class="text-primary">    .---.
+   /     \\
+   \\.@-@./
+   /` + "`" + `---'\\
+  /       \\
+ |         |
+ |         |
+  \\       /
+   \`'---'´</span><span><span class="text-primary">user</span>@<span class="text-primary">andrew.dev</span>
+--------------------
+<span class="text-secondary">OS:</span>         Portfolio v2.0
+<span class="text-secondary">Host:</span>       Your Web Browser
+<span class="text-secondary">Kernel:</span>     JavaScript (ES2023)
+<span class="text-secondary">Uptime:</span>     ${uptime} seconds
+<span class="text-secondary">Shell:</span>      bash (simulated)
+<span class="text-secondary">DE:</span>         DOM
+<span class="text-secondary">Theme:</span>      Dark
+<span class="text-secondary">Terminal:</span>   This one!</span></pre>`;
+        },
+        clear: () => {
+            output.innerHTML = '';
+            return '';
+        },
+        sudo: () => 'User is not in the sudoers file. This incident will be reported.',
+    };
 
-            const markerWorldPos = new THREE.Vector3();
+    function print(html) {
+        output.innerHTML += `<div>${html}</div>`;
+    }
 
-            function animate() {
-                requestAnimationFrame(animate);
-                earthMesh.rotation.y -= 0.001;
-                cloudMesh.rotation.y -= 0.0015;
-                
-                // Subtle pulse animation for the Egypt marker ring
-                if (ring) {
-                    const pulse = 0.5 + Math.sin(Date.now() * 0.005) * 0.5; // Animates between 0.5 and 1.0
-                    ring.material.emissiveIntensity = pulse;
-                    ring.material.opacity = 0.4 + pulse * 0.4; // Base 0.4, grows to 0.8
-                }
+    function printCommand(command) {
+        const escapedCommand = command.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        output.innerHTML += `<div><span class="text-secondary">user@andrew.dev:~$</span><span class="pl-2">${escapedCommand}</span></div>`;
+    }
 
-                // Update connector line and visibility
-                if (dot) {
-                    dot.getWorldPosition(markerWorldPos);
+    function processCommand(command) {
+        if (command.trim() !== '') {
+            commandHistory.unshift(command);
+        }
+        historyIndex = -1;
+        printCommand(command);
 
-                    labelSprite.visible = true;
-                    connectorLine.visible = true;
+        const [cmd, ...args] = command.trim().split(' ');
+        if (commands[cmd]) {
+            const result = commands[cmd]();
+            if (result) print(result);
+        } else if (cmd) {
+            print(`bash: command not found: ${cmd}`);
+        }
+        
+        input.value = '';
+        inputDisplay.textContent = '';
+        terminalContainer.scrollTop = terminalContainer.scrollHeight;
+    }
 
-                    const labelWorldPos = new THREE.Vector3().setFromMatrixPosition(labelSprite.matrixWorld);
-                    connectorLine.geometry.setFromPoints([labelWorldPos, markerWorldPos]);
-                }
+    input.addEventListener('input', () => {
+        inputDisplay.textContent = input.value;
+    });
 
-                controls.update();
-                renderer.render(scene, camera);
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            processCommand(input.value);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                input.value = commandHistory[historyIndex];
+                inputDisplay.textContent = input.value;
             }
+        } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex > 0) {
+                historyIndex--;
+                input.value = commandHistory[historyIndex];
+            } else {
+                historyIndex = -1;
+                input.value = '';
+            }
+            inputDisplay.textContent = input.value;
+        }
+    });
 
-            window.addEventListener('resize', () => {
-                camera.aspect = container.offsetWidth / container.offsetHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(container.offsetWidth, container.offsetHeight);
-            });
+    function init() {
+        output.innerHTML = '';
+        print(welcomeMessage);
+        input.focus();
+    }
 
-            animate();
-        })();
-    </script>
+    init();
+})();
+</script>
 
+<!-- Tech Stack Section -->
+<section id="tech" class="py-24">
+    <div class="max-w-container mx-auto px-5 md:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+            <p class="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">My Toolbox</p>
+            <h2 class="text-3xl md:text-5xl font-bold text-foreground mb-4">Tech Stack</h2>
+            <p class="text-muted-foreground max-w-lg mx-auto">A collection of my favorite tools and technologies that I use to bring ideas to life.</p>
+        </div>
+
+        <div class="relative flex flex-col gap-8 overflow-hidden">
+            <div class="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10"></div>
+            <div class="absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10"></div>
+            
+            <div class="marquee-track">
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">HTML5</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">CSS3</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">JavaScript</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">TypeScript</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">React</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="invert h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Next.js</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Tailwind CSS</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">HTML5</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">CSS3</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">JavaScript</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">TypeScript</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">React</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="invert h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Next.js</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Tailwind CSS</span></div>
+                                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">HTML5</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">CSS3</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">JavaScript</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">TypeScript</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">React</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="invert h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Next.js</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Tailwind CSS</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">HTML5</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">CSS3</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">JavaScript</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">TypeScript</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">React</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="invert h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Next.js</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Tailwind CSS</span></div>
+
+            </div>
+
+            <div class="marquee-track marquee-track-reverse">
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Node.js</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Python</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Django</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">MySQL</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Git</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="Three.js" class="invert h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Three.js</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Figma</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Node.js</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Python</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Django</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">MySQL</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Git</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="Three.js" class="invert h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Three.js</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Figma</span></div>
+                                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Node.js</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Python</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Django</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">MySQL</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Git</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="Three.js" class="invert h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Three.js</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Figma</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Node.js</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Python</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Django</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">MySQL</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Git</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="Three.js" class="invert h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Three.js</span></div>
+                <div class="inline-flex flex-col items-center gap-2 p-2 min-w-[70px] text-center lg:p-3 lg:min-w-[80px] flex-shrink-0" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="h-7 w-7 object-contain lg:h-9 lg:w-9" /><span class="text-[10px] font-mono uppercase leading-tight tracking-wider text-muted-foreground">Figma</span></div>
+
+            </div>
+        </div>
+    </div>
 </section>
-<!-- Tech Stack Bento Section -->
-<section id="tech" class="py-section-gap bg-surface-container-lowest">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="mb-16">
-<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Tech Ecosystem</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Precision tools for modern full-stack development.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-<!-- Feature 1 -->
-<div class="md:col-span-2 glass-card tilt-card anime-card p-8 rounded-xl flex flex-col justify-between hover:border-primary/30 transition-colors">
-<div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center text-primary mb-6">
-<span class="material-symbols-outlined" data-icon="javascript">javascript</span>
-</div>
-<div class="flex-grow tilt-content">
-<h3 class="font-headline-md text-2xl text-on-surface mb-2">Frontend Development</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Developing responsive, accessible interfaces with HTML, CSS, and JavaScript.</p>
-</div>
-</div>
-<!-- Feature 2 -->
-<div class="md:col-span-2 glass-card tilt-card anime-card p-8 rounded-xl flex flex-col justify-between hover:border-primary/30 transition-colors">
-<div class="bg-secondary/10 w-12 h-12 rounded-lg flex items-center justify-center text-secondary mb-6">
-<span class="material-symbols-outlined" data-icon="database">database</span>
-</div>
-<div class="flex-grow tilt-content">
-<h3 class="font-headline-md text-2xl text-on-surface mb-2">Backend Logic</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Developing robust server-side logic and scalable databases with Django and MySQL.</p>
-</div>
-</div>
-</div>
-<!-- Stats Grid -->
-<div class="md:col-span-4 grid grid-cols-2 md:grid-cols-4 gap-6">
-<div class="bg-surface-container p-6 rounded-xl border border-white/5">
-<div class="text-primary font-display-lg text-4xl mb-1">10+</div>
-<div class="font-label-caps text-label-caps text-on-surface-variant">Projects Done</div>
-</div>
-<div class="bg-surface-container p-6 rounded-xl border border-white/5">
-<div class="text-primary font-display-lg text-4xl mb-1">3+</div>
-<div class="font-label-caps text-label-caps text-on-surface-variant">Years Exp.</div>
-</div>
-<div class="bg-surface-container p-6 rounded-xl border border-white/5">
-<div class="text-primary font-display-lg text-4xl mb-1">12k+</div>
-<div class="font-label-caps text-label-caps text-on-surface-variant">Git Commits</div>
-</div>
-<div class="bg-surface-container p-6 rounded-xl border border-white/5">
-<div class="text-primary font-display-lg text-4xl mb-1">100%</div>
-<div class="font-label-caps text-label-caps text-on-surface-variant">Uptime Target</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Featured Projects -->
-<section id="projects" class="py-section-gap">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-<div>
-<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Featured Work</h2>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">Selected projects that demonstrate my approach to performance and aesthetic balance.</p>
-</div>
-<button class="flex items-center gap-2 text-primary font-semibold font-body-md text-body-md group">
-                        Explore Full Gallery
-                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="arrow_right_alt">arrow_right_alt</span>
+
+<!-- Scroll To Top Button -->
+<button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
+    </svg>
 </button>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-<!-- Project Card 1 -->
-<div class="group tilt-card">
-<div class="relative aspect-video rounded-2xl overflow-hidden mb-6 border border-white/10">
-<img alt="Student Job Board Screenshot" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105 group-hover:saturate-150" src="./assets/project-1.png"/>
-<div class="absolute inset-0 bg-surface-dim/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-8 z-10 pointer-events-none group-hover:pointer-events-auto" style="transform: translateZ(40px);">
-<div class="flex gap-3 mb-6">
-<span class="bg-primary/20 backdrop-blur-md text-primary px-3 py-1 rounded-full font-code-sm text-code-sm">React</span>
-<span class="bg-primary/20 backdrop-blur-md text-primary px-3 py-1 rounded-full font-code-sm text-code-sm">Django</span>
-</div>
-<div class="flex flex-col w-full gap-3 max-w-[220px] relative z-20">
-<a href="https://andrew2642.github.io/SJB/index.html" target="_blank" class="w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-sm">rocket_launch</span> Live Demo
-</a>
-</div>
-</div>
-</div>
-<div class="tilt-content">
-<h3 class="font-headline-md text-2xl text-on-surface mb-2 group-hover:text-primary transition-colors">Student Job Board</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">A job board app built for students to find internships and job opportunities.</p>
-</div>
-</div>
-<!-- Project Card 2 -->
-<div class="group tilt-card">
-<div class="relative aspect-video rounded-2xl overflow-hidden mb-6 border border-white/10">
-<img alt="Blood Donation App Screenshot" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105 group-hover:saturate-150" src="./assets/project-2.png"/>
-<div class="absolute inset-0 bg-surface-dim/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center p-8 z-10 pointer-events-none group-hover:pointer-events-auto" style="transform: translateZ(40px);">
-<div class="flex gap-3 mb-6">
-<span class="bg-primary/20 backdrop-blur-md text-primary px-3 py-1 rounded-full font-code-sm text-code-sm">React</span>
-<span class="bg-primary/20 backdrop-blur-md text-primary px-3 py-1 rounded-full font-code-sm text-code-sm">Django</span>
-</div>
-<div class="flex flex-col w-full gap-3 max-w-[220px] relative z-20">
-<a href="https://andrew2642.github.io/blood_donation/index.html" target="_blank" class="w-full py-3 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 hover:scale-105 transition-transform">
-<span class="material-symbols-outlined text-sm">rocket_launch</span> Live Demo
-</a>
-</div>
-</div>
-</div>
-<div class="tilt-content">
-<h3 class="font-headline-md text-2xl text-on-surface mb-2 group-hover:text-primary transition-colors">Blood Donation App</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Website for connecting donors with recipients in need of blood transfusions.</p>
-</div>
-</div>
 
-</div>
-</div>
+<!-- Projects Section -->
+<section id="projects" class="relative z-10 py-20 sm:py-28 text-foreground flex justify-center overflow-hidden">
+    <div class="container max-w-6xl px-4 sm:px-6 w-full ">
+        <div class="text-center mb-16 scroll-reveal">
+            <p class="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">My Work</p>
+            <h2 class="text-3xl md:text-5xl font-bold text-foreground mb-4">Selected Projects</h2>
+            <p class="text-muted-foreground max-w-lg mx-auto">A collection of things I've designed, built, and contributed to.</p>
+        </div>
+
+        <div class="flex flex-col lg:grid lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-12 w-full">
+            <div class="w-full lg:max-h-[75vh] lg:overflow-y-auto lg:pr-2">
+                <ul id="interactive-project-list" class="divide-y divide-border border-y border-border">
+                    <!-- JS will populate this -->
+                </ul>
+            </div>
+
+            <div id="interactive-project-display-wrapper" class="w-full">
+                <div class="lg:sticky lg:top-24" id="interactive-project-display">
+                    <!-- JS will populate this -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden original project cards for data source -->
+        <div id="project-data-source" class="hidden">
+            <div 
+                class="project-card-data" 
+                data-title="Student Job Board" 
+                data-img="./assets/project-1.png" 
+                data-desc="A full-stack job board application designed for students to find internships and entry-level positions." 
+                data-live-url="https://andrew2642.github.io/SJB/index.html" 
+                data-source-url="#"
+                data-tags='["React", "Django"]'>
+            </div>
+            <div 
+                class="project-card-data" 
+                data-title="Blood Donation App" 
+                data-img="./assets/project-2.png" 
+                data-desc="A web application to connect blood donors with recipients, manage donation requests, and track blood inventory." 
+                data-live-url="#" 
+                data-source-url="#"
+                data-tags='["Django"]'>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- Game Section -->
-<section id="playground" class="py-section-gap bg-surface-container-lowest">
-    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div class="glass-card tilt-card rounded-2xl overflow-hidden border border-primary/20">
-            <div class="bg-surface-container px-6 py-3 border-b border-primary/10 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
-                    <span id="terminal-title" class="ml-4 font-code-sm text-on-surface-variant opacity-70">terminal — system.sh</span>
-                </div>
-                <div id="game-score" class="font-code-sm text-primary">Score: 0000</div>
+<section id="playground" class="py-24 bg-black">
+<div class="max-w-container mx-auto px-5 md:px-8">
+    <div class="text-center mb-16 scroll-reveal">
+        <p class="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">Playground</p>
+        <h2 class="text-3xl md:text-5xl font-bold text-foreground mb-4">Terminal Games</h2>
+        <p class="text-muted-foreground max-w-md mx-auto">Classic arcade games in your browser.</p>
+    </div>
+    <div class="glass rounded-2xl overflow-hidden border border-primary/10 scroll-reveal">
+        <div class="bg-card/50 px-6 py-3 border-b border-white/5 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                <span id="terminal-title" class="ml-4 font-mono text-sm text-muted-foreground opacity-70">terminal — system.sh</span>
             </div>
-            <div id="game-container" class="cursor-pointer group relative">
-                <canvas id="game-canvas"></canvas>
-                <div id="game-overlay" class="absolute inset-0 bg-background/60 backdrop-blur-sm flex flex-col items-center justify-center transition-opacity p-6 text-center">
-                    <h3 id="game-overlay-title" class="font-display-lg-mobile text-primary mb-2 text-2xl md:text-4xl">SYSTEM_READY</h3>
-                    <p id="game-overlay-desc" class="text-on-surface-variant mb-8 font-body-md">Select a script to execute in the terminal.</p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <button id="start-snake" class="bg-primary text-on-primary px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform">./run_snake</button>
-                        <button id="start-dodger" class="bg-secondary text-on-secondary px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform">./run_dodger</button>
-                    </div>
+            <div id="game-score" class="font-mono text-sm text-primary">Score: 0000</div>
+        </div>
+        <div id="game-container" class="cursor-pointer group relative">
+            <canvas id="game-canvas"></canvas>
+            <div id="game-overlay" class="absolute inset-0 bg-background/60 backdrop-blur-sm flex flex-col items-center justify-center transition-opacity p-6 text-center">
+                <h3 id="game-overlay-title" class="text-2xl md:text-4xl font-bold text-primary mb-2">SYSTEM_READY</h3>
+                <p id="game-overlay-desc" class="text-muted-foreground mb-8 text-sm">Select a script to execute in the terminal.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button id="start-snake" class="bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold hover:scale-105 transition-transform text-sm">./run_snake</button>
+                    <button id="start-dodger" class="bg-secondary text-secondary-foreground px-6 py-3 rounded-xl font-semibold hover:scale-105 transition-transform text-sm">./run_dodger</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </section>
 
-<!-- CTA Section -->
-<section id="contact" class="py-section-gap">
-    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            <div class="reveal-1">
-                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-secondary/20 bg-secondary/10 text-secondary mb-6 font-code-sm">
-                    <span class="font-label-caps text-label-caps uppercase tracking-widest">Establishing Connection</span>
+<!-- Contact Section -->
+<section id="contact" class="py-24">
+    <div class="max-w-container mx-auto px-5 md:px-8">
+        <div class="text-center mb-16 scroll-reveal">
+            <p class="text-sm font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">Let's Connect</p>
+            <h2 class="text-3xl md:text-5xl font-bold text-foreground mb-4">Get In Touch</h2>
+            <p class="text-muted-foreground max-w-lg mx-auto">Have a project in mind or just want to say hi? Feel free to reach out.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+            <!-- Left Column: Info -->
+            <div class="scroll-reveal space-y-6 hidden md:block">
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full border border-secondary/20 bg-secondary/10 text-secondary font-mono text-sm uppercase tracking-widest">
+                    <span>Establishing Connection</span>
                 </div>
-                <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 leading-tight">
-                    Let's build something <br/><span class="text-primary italic">extraordinary.</span>
-                </h2>
-                <p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-md">
+                <h3 class="text-4xl md:text-5xl font-bold text-foreground leading-tight">
+                    Let's build something<br><span class="text-primary italic">extraordinary.</span>
+                </h3>
+                <p class="text-lg text-muted-foreground max-w-xl leading-relaxed">
                     Whether you have a fully-formed mission or just the start of a concept, I'm ready to help you bring it to life with technical precision.
                 </p>
-                
-                <div class="space-y-8">
-                    <div class="flex items-center gap-6 group">
+                <div class="pt-8 border-t border-border">
+                    <h4 class="font-semibold text-foreground mb-4">Find me on</h4>
+                    <div class="flex gap-4">
+                        <a target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-muted-foreground transition-all duration-300 hover:text-primary" href="https://github.com/andrew2642">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.564 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+                        </a>
+                        <a target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-muted-foreground transition-all duration-300 hover:text-primary" href="https://www.linkedin.com/in/andrew-milad-/">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+                        </a>
+                        <a target="_blank" rel="noopener noreferrer" aria-label="itch.io" class="text-muted-foreground transition-all duration-300 hover:text-primary" href="https://andrew2642.itch.io/">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true"><path d="M21.503 6.845c-.33-.156-2.19-1.03-2.19-1.03L12.01 3.12l-7.303 2.695s-1.86.874-2.19 1.03c-.33.156-.497.546-.497.94v10.11c0 .393.167.784.497.94.33.156 2.19 1.03 2.19 1.03l7.303 2.695 7.303-2.695s1.86-.874 2.19-1.03c.33-.156.497-.546.497-.94V7.785c0-.393-.167-.784-.497-.94zM12 13.064l-3.33-1.22v-1.68l3.33 1.22v1.68zm0-2.9l-3.33-1.22V7.26l3.33 1.22v1.684zm.015 5.122l-3.33-1.22v-1.68l3.33 1.22v1.68zm3.315-3.902l-3.33 1.22v-1.68l3.33-1.22v1.68z"></path></svg>
+                        </a>
                     </div>
                 </div>
             </div>
-            
-            <div class="reveal-2 glass-card p-8 md:p-10 rounded-3xl border border-white/10 relative overflow-hidden anime-card">
-                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
-                <form id="contact-form" class="space-y-6 relative z-10">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-on-surface-variant font-label-caps text-xs mb-3 uppercase tracking-widest opacity-70">User_Name</label>
-                            <input type="text" name="name" placeholder="Enter name..." required class="w-full bg-surface-container-high border border-white/5 rounded-xl px-4 py-4 text-on-surface focus:outline-none focus:border-primary/50 transition-all font-body-md placeholder:opacity-30">
-                        </div>
-                        <div>
-                            <label class="block text-on-surface-variant font-label-caps text-xs mb-3 uppercase tracking-widest opacity-70">Return_Address</label>
-                            <input type="email" name="email" placeholder="Enter email..." required class="w-full bg-surface-container-high border border-white/5 rounded-xl px-4 py-4 text-on-surface focus:outline-none focus:border-primary/50 transition-all font-body-md placeholder:opacity-30">
-                        </div>
-                        <input type="hidden" name="time" id="form-time">
-                    </div>
-                    <div>
-                        <label class="block text-on-surface-variant font-label-caps text-xs mb-3 uppercase tracking-widest opacity-70">Mission_Details</label>
-                        <textarea name="message" rows="4" placeholder="Tell me about your project concept..." required class="w-full bg-surface-container-high border border-white/5 rounded-xl px-4 py-4 text-on-surface focus:outline-none focus:border-primary/50 transition-all font-body-md resize-none placeholder:opacity-30"></textarea>
-                    </div>
-                    <button id="submit-btn" type="submit" class="w-full bg-primary text-on-primary font-bold py-5 rounded-2xl active:scale-95 duration-150 transition-all flex items-center justify-center gap-3 group">
-                        Send Transmission
-                        <span class="material-symbols-outlined text-xl group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">send</span>
-                    </button>
-                </form>
-            </div>
+
+            <!-- Right Column: Form -->
+            <form id="contact-form" class="space-y-6 glass p-8 rounded-2xl scroll-reveal">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-muted-foreground mb-2">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Your Name" class="w-full bg-muted/50 border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-primary focus:border-primary transition-all" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-muted-foreground mb-2">Email</label>
+                    <input type="email" name="email" id="email" placeholder="you@example.com" class="w-full bg-muted/50 border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-primary focus:border-primary transition-all" required>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-muted-foreground mb-2">Message</label>
+                    <textarea name="message" id="message" rows="5" placeholder="Tell me about your project..." class="w-full bg-muted/50 border-border rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-primary focus:border-primary transition-all" required></textarea>
+                </div>
+                <input type="hidden" id="form-time" name="time">
+                <button id="submit-btn" type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold px-6 py-3.5 rounded-full hover:shadow-[0_0_20px_rgba(164,230,255,0.25)] transition-all active:scale-95 text-sm">
+                    Send Message <span class="material-symbols-outlined text-base">send</span>
+                </button>
+                <div id="form-feedback" class="text-sm text-center pt-2"></div>
+            </form>
         </div>
     </div>
+</div>
 </section>
-</main>
+
 <!-- Footer -->
-<footer class="w-full py-8 bg-surface-container-lowest border-t border-white/5">
-<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-8">
-<div class="flex flex-col items-center md:items-start gap-4">
-<div class="font-label-caps text-label-caps text-on-surface-variant">DevPortfolio</div>
-<p class="text-on-surface-variant font-body-md text-body-md text-center md:text-left">© 2024 Developer Portfolio. Built with precision.</p>
-</div>
-<div class="flex items-center space-x-8">
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md opacity-80 hover:opacity-100" href="https://github.com/andrew2642" target="_blank">GitHub</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md opacity-80 hover:opacity-100" href="https://www.linkedin.com/in/andrew-milad-/" target="_blank">LinkedIn</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md opacity-80 hover:opacity-100" href="https://andrew2642.itch.io/" target="_blank">Itch.io</a>
-</div>
+<footer dir="ltr" class="relative z-10 border-t border-border bg-card/40 backdrop-blur-sm">
+<div class="mx-auto max-w-6xl px-6 py-5 flex flex-col items-center gap-3">
+    <div class="flex flex-col items-center gap-3 w-full" style="opacity: 1; transform: none;">
+        <div class="flex items-center justify-center gap-5">
+            <a target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-muted-foreground transition-all duration-300 hover:-translate-y-1.5 hover:text-primary hover:drop-shadow-[0_4px_6px_rgba(var(--primary),0.4)]" href="https://github.com/andrew2642">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.564 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"></path></svg>
+            </a>
+            <a target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-muted-foreground transition-all duration-300 hover:-translate-y-1.5 hover:text-primary hover:drop-shadow-[0_4px_6px_rgba(var(--primary),0.4)]" href="https://www.linkedin.com/in/andrew-milad-/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+            </a>
+            <a target="_blank" rel="noopener noreferrer" aria-label="itch.io" class="text-muted-foreground transition-all duration-300 hover:-translate-y-1.5 hover:text-primary hover:drop-shadow-[0_4px_6px_rgba(var(--primary),0.4)]" href="https://andrew2642.itch.io/" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5" aria-hidden="true"><path d="M21.503 6.845c-.33-.156-2.19-1.03-2.19-1.03L12.01 3.12l-7.303 2.695s-1.86.874-2.19 1.03c-.33.156-.497.546-.497.94v10.11c0 .393.167.784.497.94.33.156 2.19 1.03 2.19 1.03l7.303 2.695 7.303-2.695s1.86-.874 2.19-1.03c.33-.156.497-.546.497-.94V7.785c0-.393-.167-.784-.497-.94zM12 13.064l-3.33-1.22v-1.68l3.33 1.22v1.68zm0-2.9l-3.33-1.22V7.26l3.33 1.22v1.684zm.015 5.122l-3.33-1.22v-1.68l3.33 1.22v1.68zm3.315-3.902l-3.33 1.22v-1.68l3.33-1.22v1.68z"></path></svg>
+            </a>
+        </div>
+        <p class="text-sm whitespace-nowrap"><span class="shine-word inline-block" style="animation-delay: 0s;">Designed&nbsp;</span><span class="shine-word inline-block" style="animation-delay: 0.4s;">and&nbsp;</span><span class="shine-word inline-block" style="animation-delay: 0.8s;">developed&nbsp;</span><span class="shine-word inline-block" style="animation-delay: 1.2s;">by&nbsp;</span><span class="shine-word inline-block" style="animation-delay: 1.6s;">Andrew&nbsp;</span><span class="shine-word inline-block" style="animation-delay: 2s;">Milad</span></p>
+    </div>
 </div>
 </footer>
-<!-- FAB (Suppressed based on logic for landing page depth, but kept as hidden for reference if needed elsewhere) -->
-<button class="hidden fixed bottom-8 right-8 bg-primary text-on-primary w-14 h-14 rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform z-40">
-<span class="material-symbols-outlined" data-icon="add">add</span>
-</button>
+
 <script>
+    // Contact Form
     const contactForm = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
+    const formFeedback = document.getElementById('form-feedback');
 
-    if (contactForm && submitBtn) {
+    if (contactForm && submitBtn && formFeedback) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            console.log('Transmission sequence initiated...');
             
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+
+            // Basic validation
+            if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+                formFeedback.textContent = 'Please fill in all fields.';
+                formFeedback.className = 'text-sm text-center pt-2 text-red-400';
+                return;
+            }
+            if (!/^\S+@\S+\.\S+$/.test(emailInput.value)) {
+                formFeedback.textContent = 'Please enter a valid email address.';
+                formFeedback.className = 'text-sm text-center pt-2 text-red-400';
+                return;
+            }
+
             const originalContent = submitBtn.innerHTML;
             submitBtn.disabled = true;
-            submitBtn.innerHTML = `
-                <span class="animate-spin material-symbols-outlined">sync</span>
-                Relaying Signal...
-            `;
+            submitBtn.innerHTML = `<span class="animate-spin material-symbols-outlined text-base">sync</span> Sending...`;
+            formFeedback.textContent = '';
 
             try {
-                if (typeof emailjs === 'undefined') {
-                    throw new Error('Email Service is unavailable. Please disable ad-blockers and check your connection.');
-                }
-
-                // Initialize inside the handler to ensure the global object is ready
-            emailjs.init("Y2LaFsZSbGy7XKtgv");
-
-                // Set the current time for the template
+                if (typeof emailjs === 'undefined') throw new Error('Email Service unavailable.');
+                emailjs.init("Y2LaFsZSbGy7XKtgv");
                 document.getElementById('form-time').value = new Date().toLocaleString();
-
-                const result = await emailjs.sendForm(
-                    'service_d37940b',
-                    'template_zyk9uva',
-                    e.target // Pass the form element directly
-                );
                 
-                console.log('Transmission Success:', result);
-                alert('Transmission Successful! Mission details received.');
+                const result = await emailjs.sendForm('service_d37940b', 'template_zyk9uva', e.target);
+                
+                formFeedback.textContent = 'Message sent successfully! I will get back to you soon.';
+                formFeedback.className = 'text-sm text-center pt-2 text-green-400';
                 contactForm.reset();
             } catch (error) {
-                console.error('Transmission Failure Details:', error);
-                // Capture error details from EmailJS (.text) or standard JS Errors (.message)
-                const errorMessage = error?.text || error?.message || 'Unknown signal interference.';
-                alert('Critical Error: ' + errorMessage);
+                formFeedback.textContent = 'Error: ' + (error?.text || error?.message || 'Could not send message.');
+                formFeedback.className = 'text-sm text-center pt-2 text-red-400';
             } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalContent;
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalContent;
+                    if (formFeedback.textContent.includes('successfully')) {
+                        formFeedback.textContent = '';
+                    }
+                }, 3000);
             }
         });
     }
 
+    // Mobile Menu
     const menuToggle = document.getElementById('menu-toggle');
-    const closeMenu = document.getElementById('close-menu');
-    const overlay = document.getElementById('mobile-overlay');
-    menuToggle.addEventListener('click', () => overlay.classList.remove('translate-x-full'));
-    closeMenu.addEventListener('click', () => overlay.classList.add('translate-x-full'));
-    overlay.querySelectorAll('a').forEach(link => link.addEventListener('click', () => overlay.classList.add('translate-x-full')));
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconOpen = document.getElementById('menu-icon-open');
+    const menuIconClose = document.getElementById('menu-icon-close');
+    let isMenuOpen = false;
+    
+    function setMenuState(isOpen) {
+        if (!mobileMenu || !menuIconOpen || !menuIconClose) return;
+        isMenuOpen = isOpen;
+        
+        if (isOpen) {
+            mobileMenu.classList.remove('-translate-y-full');
+            menuIconOpen.style.opacity = '0';
+            menuIconOpen.style.transform = 'rotate(90deg)';
+            menuIconClose.style.opacity = '1';
+            menuIconClose.style.transform = 'rotate(0deg)';
+            document.body.style.overflow = 'hidden';
+        } else {
+            mobileMenu.classList.add('-translate-y-full');
+            menuIconClose.style.opacity = '0';
+            menuIconClose.style.transform = 'rotate(90deg)';
+            menuIconOpen.style.opacity = '1';
+            menuIconOpen.style.transform = 'rotate(0deg)';
+            document.body.style.overflow = '';
+        }
+    }
+    
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => setMenuState(!isMenuOpen));
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => setMenuState(false));
+        });
+    }
 
-    // Scroll Spy: Highlight nav links based on scroll position
-    const observerOptions = {
-        root: null,
-        rootMargin: '-20% 0px -70% 0px', // Trigger when section is in the upper middle of viewport
-        threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
+    // Scroll Spy
+    const navObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const id = entry.target.getAttribute('id');
                 document.querySelectorAll('.nav-link').forEach(link => {
                     const href = link.getAttribute('href').substring(1);
                     if (href === id) {
-                        link.classList.add('text-primary', 'font-bold', 'active');
-                        link.classList.remove('text-on-surface-variant', 'font-medium');
+                        link.classList.add('text-primary', 'active');
+                        link.classList.remove('text-muted-foreground');
                     } else {
-                        link.classList.remove('text-primary', 'font-bold', 'active');
-                        link.classList.add('text-on-surface-variant', 'font-medium');
+                        link.classList.remove('text-primary', 'active');
+                        link.classList.add('text-muted-foreground');
                     }
                 });
             }
         });
-    }, observerOptions);
+    }, { root: null, rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+    document.querySelectorAll('section[id]').forEach(section => navObserver.observe(section));
 
-    document.querySelectorAll('section[id]').forEach(section => {
-        observer.observe(section);
-    });
+    // Scroll Reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { root: null, rootMargin: '-50px 0px -50px 0px', threshold: 0 });
+    document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
 
-    // Fixed Navbar behavior on scroll
+    // Navbar scroll effect
     const mainHeader = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
         const isScrolled = window.scrollY > 20;
-        mainHeader.classList.toggle('bg-surface/80', isScrolled);
-        mainHeader.classList.toggle('backdrop-blur-md', isScrolled);
-        mainHeader.classList.toggle('shadow-2xl', isScrolled);
+        mainHeader.classList.toggle('bg-background/80', isScrolled);
+        mainHeader.classList.toggle('backdrop-blur-xl', isScrolled);
+        mainHeader.classList.toggle('shadow-lg', isScrolled);
     });
 
-    // 3D Tilt Effect for cards
-    const cards = document.querySelectorAll('.tilt-card');
-    if (window.innerWidth > 1024) {
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = (y - centerY) / 12;
-                const rotateY = (centerX - x) / 12;
-
-                card.style.transform =
-                    `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform =
-                    'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-            });
+    // Scroll-to-top button
+    const scrollToTopBtn = document.getElementById('scroll-to-top');
+    if (scrollToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 
-    // Parallax Background movement
-    const parallaxBg = document.querySelector('.parallax-bg');
-    window.addEventListener('mousemove', (e) => {
-        const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-        const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
-        parallaxBg.style.transform = `translateZ(-100px) scale(2) translateX(${moveX}px) translateY(${moveY}px)`;
-    });
+    // Interactive Projects Section
+    const projectDataSource = document.getElementById('project-data-source');
+    const projectListContainer = document.getElementById('interactive-project-list');
+    const projectDisplayContainer = document.getElementById('interactive-project-display');
 
-    // --- GAME LOGIC ---
+    if (projectDataSource && projectListContainer && projectDisplayContainer) {
+        const projectDataElements = Array.from(projectDataSource.querySelectorAll('.project-card-data'));
+        const projectsData = projectDataElements.map(el => ({
+            title: el.dataset.title,
+            img: el.dataset.img,
+            desc: el.dataset.desc,
+            liveUrl: el.dataset.liveUrl,
+            sourceUrl: el.dataset.sourceUrl,
+            tags: JSON.parse(el.dataset.tags),
+        }));
+
+        function updateDisplay(project) {
+            const tagsHTML = project.tags.map(tag => `<div class="inline-flex items-center rounded-full px-2.5 py-0.5 bg-background/70 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider text-foreground border border-white/20 shadow-sm sm:text-xs">${tag}</div>`).join('');
+            
+            projectDisplayContainer.innerHTML = `
+                <div class="group mx-auto w-full overflow-hidden rounded-3xl border border-border bg-card shadow-lg shadow-black/5 transition-all duration-300">
+                    <div class="relative aspect-video overflow-hidden rounded-t-3xl bg-muted/30">
+                        <img alt="${project.title}" loading="lazy" src="${project.img}" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105">
+                        <div class="absolute inset-x-3 top-3 z-10 flex flex-wrap gap-1.5 sm:inset-x-6 sm:top-6">
+                            ${tagsHTML}
+                        </div>
+                    </div>
+                    <div class="space-y-4 p-5 sm:p-6 md:p-8">
+                        <div>
+                            <h3 class="text-xl font-semibold tracking-tight sm:text-2xl">${project.title}</h3>
+                            <p class="mt-2 text-sm leading-relaxed text-muted-foreground sm:mt-3">${project.desc}</p>
+                        </div>
+                        <div class="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
+                            <a href="${project.liveUrl}" target="_blank" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-all duration-300 h-11 px-8 w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:w-auto active:scale-95">
+                                View Live <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        projectListContainer.innerHTML = projectsData.map((project, index) => {
+            const tagsHTML = project.tags.map(tag => `<div class="inline-flex items-center rounded-full border px-2.5 py-0.5 font-semibold bg-transparent text-[10px] uppercase tracking-wider text-muted-foreground group-hover:text-white group-hover:border-white">${tag}</div>`).join('');
+            return `
+                <li>
+                    <button data-index="${index}" class="project-list-item group w-full text-left py-5 px-2">
+                        <span aria-hidden="true" class="absolute start-0 top-1/2 h-8 w-[3px] -translate-y-1/2 rounded-full bg-primary transition-all duration-150 origin-center opacity-0 scale-y-[0.4] group-[.active]:opacity-100 group-[.active]:scale-y-100"></span>
+                        <span class="ms-4 w-10 shrink-0 font-mono text-sm tabular-nums transition-colors text-muted-foreground/40 group-hover:text-primary group-[.active]:text-primary">${String(index + 1).padStart(2, '0')}</span>
+                        <span class="flex-1 truncate text-lg font-medium text-foreground group-hover:text-primary transition-colors group-[.active]:text-primary">${project.title}</span>
+                        <span class="hidden gap-1.5 sm:flex">${tagsHTML}</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 shrink-0 transition-all rtl:rotate-180 -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 group-hover:text-primary group-[.active]:text-primary"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+                    </button>
+                </li>
+            `;
+        }).join('');
+
+        const listItems = projectListContainer.querySelectorAll('button.project-list-item');
+
+        function setActiveProject(index) {
+            listItems.forEach((item, i) => {
+                item.classList.toggle('active', i == index);
+            });
+            updateDisplay(projectsData[index]);
+        }
+
+        listItems.forEach(item => {
+            item.addEventListener('click', () => {
+                setActiveProject(item.dataset.index);
+            });
+        });
+
+        if (projectsData.length > 0) {
+            setActiveProject(0);
+        }
+    }
+
     const gameContainer = document.getElementById('game-container');
     const gameCanvas = document.getElementById('game-canvas');
     const ctx = gameCanvas.getContext('2d');
@@ -967,39 +1171,27 @@
     const gameOverlayDesc = document.getElementById('game-overlay-desc');
     const startSnakeBtn = document.getElementById('start-snake');
     const startDodgerBtn = document.getElementById('start-dodger');
-
     const GRID_SIZE = 20;
-    let isPlaying = false;
-    let currentGame = 'snake';
-    let score = 0;
-    let snake = [];
-    let food = { x: 0, y: 0 };
-    let bugs = [];
-    let dx = 1, playerX = 0;
-    let dy = 0;
-    let lastDx = 1;
-    let lastDy = 0;
-    let lastTime = 0;
-    let gameLoopId = null;
-    let gameSpeed = 100; // ms per move
+    let isPlaying = false, currentGame = 'snake', score = 0;
+    let snake = [], food = { x: 0, y: 0 }, bugs = [];
+    let dx = 1, playerX = 0, dy = 0, lastDx = 1, lastDy = 0;
+    let lastTime = 0, gameLoopId = null, gameSpeed = 100;
 
     function resizeCanvas() {
-        gameCanvas.width = gameContainer.offsetWidth;
+        const containerWidth = gameContainer.offsetWidth;
+        if (containerWidth <= 0) return;
+        gameCanvas.width = containerWidth;
         gameCanvas.height = window.innerWidth < 768 ? 240 : 300;
+        gameCanvas.style.display = 'block';
     }
-
     window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+    setTimeout(resizeCanvas, 100);
 
-    // Controls
     window.addEventListener('keydown', (e) => {
         if (!isPlaying) return;
         const key = e.key.toLowerCase();
-        
-        // Prevent page scrolling while playing
         const gameKeys = ['arrowup', 'arrowdown', 'arrowleft', 'arrowright', 'w', 'a', 's', 'd'];
         if (gameKeys.includes(key)) e.preventDefault();
-
         if (currentGame === 'snake') {
             if ((key === 'arrowup' || key === 'w') && lastDy === 0) { dx = 0; dy = -1; }
             if ((key === 'arrowdown' || key === 's') && lastDy === 0) { dx = 0; dy = 1; }
@@ -1011,50 +1203,36 @@
         }
     });
 
-    // Mobile Touch Support: Swipes and Taps
-    let touchStartX = 0;
-    let touchStartY = 0;
-
+    let touchStartX = 0, touchStartY = 0;
     gameCanvas.addEventListener('touchstart', (e) => {
         if (!isPlaying) return;
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
-        // Prevent scrolling while playing
         e.preventDefault();
     }, { passive: false });
-
-    gameCanvas.addEventListener('touchmove', (e) => {
-        if (isPlaying) e.preventDefault();
-    }, { passive: false });
-
+    gameCanvas.addEventListener('touchmove', (e) => { if (isPlaying) e.preventDefault(); }, { passive: false });
     gameCanvas.addEventListener('touchend', (e) => {
         if (!isPlaying) return;
         const touchEndX = e.changedTouches[0].clientX;
         const touchEndY = e.changedTouches[0].clientY;
-
         const deltaX = touchEndX - touchStartX;
         const deltaY = touchEndY - touchStartY;
-
-        // Detect Swipe (Threshold of 30px)
         if (Math.abs(deltaX) > 30 || Math.abs(deltaY) > 30) {
             if (Math.abs(deltaX) > Math.abs(deltaY)) {
                 if (currentGame === 'snake') {
                     if (deltaX > 0 && lastDx === 0) { dx = 1; dy = 0; }
                     else if (deltaX < 0 && lastDx === 0) { dx = -1; dy = 0; }
-                } else { // Dodger
-                    dx = deltaX > 0 ? 1 : -1;
-                }
+                } else { dx = deltaX > 0 ? 1 : -1; }
             } else if (currentGame === 'snake') {
                 if (deltaY > 0 && lastDy === 0) { dx = 0; dy = 1; }
                 else if (deltaY < 0 && lastDy === 0) { dx = 0; dy = -1; }
             }
         } else {
-            // Taps for movement
             const rect = gameCanvas.getBoundingClientRect();
             const tapX = touchEndX - rect.left;
             if (currentGame === 'dodger') {
                 dx = tapX < rect.width / 2 ? -1 : 1;
-            } else { // Snake: cycle direction like before
+            } else {
                 const dirs = [[1, 0], [0, 1], [-1, 0], [0, -1]];
                 let cur = dirs.findIndex(d => d[0] === lastDx && d[1] === lastDy);
                 [dx, dy] = dirs[(cur + 1) % 4];
@@ -1068,44 +1246,33 @@
         const rows = Math.floor(gameCanvas.height / GRID_SIZE);
         food.x = Math.floor(Math.random() * cols);
         food.y = Math.floor(Math.random() * rows);
-        // Ensure food doesn't spawn on snake
         if (snake.some(seg => seg.x === food.x && seg.y === food.y)) spawnFood();
     }
 
     function animate(timestamp) {
         if (!isPlaying) return;
         gameLoopId = requestAnimationFrame(animate);
-
         if (timestamp - lastTime < gameSpeed) return;
         lastTime = timestamp;
-
         if (currentGame === 'snake') updateSnake();
         else updateDodger();
     }
 
     function updateSnake() {
-        lastDx = dx;
-        lastDy = dy;
+        lastDx = dx; lastDy = dy;
         const cols = Math.floor(gameCanvas.width / GRID_SIZE);
         const rows = Math.floor(gameCanvas.height / GRID_SIZE);
         const head = { x: snake[0].x + dx, y: snake[0].y + dy };
-
-        if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows ||
-            snake.some(seg => seg.x === head.x && seg.y === head.y)) {
-            gameOver();
-            return;
+        if (head.x < 0 || head.x >= cols || head.y < 0 || head.y >= rows || snake.some(seg => seg.x === head.x && seg.y === head.y)) {
+            gameOver(); return;
         }
-
         snake.unshift(head);
-
         if (head.x === food.x && head.y === food.y) {
             score += 1;
             gameScoreElement.textContent = `Score: ${score.toString().padStart(4, '0')}`;
             spawnFood();
             gameSpeed = Math.max(50, 100 - (score / 50));
-        } else {
-            snake.pop();
-        }
+        } else { snake.pop(); }
         drawSnake(cols, rows);
     }
 
@@ -1114,34 +1281,21 @@
         const cols = Math.floor(gameCanvas.width / GRID_SIZE);
         const rows = Math.floor(gameCanvas.height / GRID_SIZE);
         playerX = Math.max(0, Math.min(cols - 1, playerX + dx));
-        
         const spawnRate = isDesktop ? 1.1 : 0.3;
         if (Math.random() < spawnRate) bugs.push({ x: Math.floor(Math.random() * cols), y: 0 });
-
         for (let i = bugs.length - 1; i >= 0; i--) {
             bugs[i].y += 1;
-            if (bugs[i].y === rows - 1 && bugs[i].x === playerX) {
-                drawDodger(cols, rows);
-                gameOver();
-                return;
-            }
-            if (bugs[i].y >= rows) {
-                bugs.splice(i, 1);
-                score += 1;
-                gameScoreElement.textContent = `Score: ${score.toString().padStart(4, '0')}`;
-            }
+            if (bugs[i].y === rows - 1 && bugs[i].x === playerX) { drawDodger(cols, rows); gameOver(); return; }
+            if (bugs[i].y >= rows) { bugs.splice(i, 1); score += 1; gameScoreElement.textContent = `Score: ${score.toString().padStart(4, '0')}`; }
         }
         drawDodger(cols, rows);
     }
 
     function drawSnake(cols, rows) {
-        ctx.fillStyle = '#0c1324';
-        ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
-        const cellW = gameCanvas.width / cols;
-        const cellH = gameCanvas.height / rows;
-        ctx.fillStyle = '#ffb4ab'; // Food
-        ctx.fillRect(food.x * cellW + 2, food.y * cellH + 2, cellW - 4, cellH - 4);
-        ctx.fillStyle = '#a4e6ff'; // Snake
+        ctx.fillStyle = '#000000'; ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+        const cellW = gameCanvas.width / cols, cellH = gameCanvas.height / rows;
+        ctx.fillStyle = '#ffb4ab'; ctx.fillRect(food.x * cellW + 2, food.y * cellH + 2, cellW - 4, cellH - 4);
+        ctx.fillStyle = '#a4e6ff';
         snake.forEach((seg, i) => {
             ctx.globalAlpha = 1 - (i / snake.length * 0.6);
             ctx.fillRect(seg.x * cellW + 1, seg.y * cellH + 1, cellW - 2, cellH - 2);
@@ -1150,14 +1304,10 @@
     }
 
     function drawDodger(cols, rows) {
-        ctx.fillStyle = '#0c1324';
-        ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
-        const cellW = gameCanvas.width / cols;
-        const cellH = gameCanvas.height / rows;
-        ctx.fillStyle = '#a4e6ff'; // Player
-        ctx.fillRect(playerX * cellW + 1, (rows - 1) * cellH + 1, cellW - 2, cellH - 2);
-        ctx.fillStyle = '#ffb4ab'; // Bugs
-        bugs.forEach(bug => ctx.fillRect(bug.x * cellW + 2, bug.y * cellH + 2, cellW - 4, cellH - 4));
+        ctx.fillStyle = '#000000'; ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+        const cellW = gameCanvas.width / cols, cellH = gameCanvas.height / rows;
+        ctx.fillStyle = '#a4e6ff'; ctx.fillRect(playerX * cellW + 1, (rows - 1) * cellH + 1, cellW - 2, cellH - 2);
+        ctx.fillStyle = '#ffb4ab'; bugs.forEach(bug => ctx.fillRect(bug.x * cellW + 2, bug.y * cellH + 2, cellW - 4, cellH - 4));
     }
 
     function gameOver() {
@@ -1177,24 +1327,20 @@
         document.body.style.overflow = 'hidden';
         gameOverlay.style.opacity = '0';
         gameOverlay.style.pointerEvents = 'none';
-        gameScoreElement.textContent = `Score: 0000`;
-        
+        gameScoreElement.textContent = 'Score: 0000';
         const cols = Math.floor(gameCanvas.width / GRID_SIZE);
         const rows = Math.floor(gameCanvas.height / GRID_SIZE);
         if (currentGame === 'snake') { spawnFood(); drawSnake(cols, rows); }
         else { drawDodger(cols, rows); }
-        
         animate(performance.now());
     }
 
     startSnakeBtn.addEventListener('click', () => {
-        currentGame = 'snake';
-        score = 0; gameSpeed = 100; dx = 1; dy = 0; lastDx = 1; lastDy = 0;
+        currentGame = 'snake'; score = 0; gameSpeed = 100; dx = 1; dy = 0; lastDx = 1; lastDy = 0;
         snake = [{ x: 5, y: 5 }, { x: 4, y: 5 }, { x: 3, y: 5 }];
         terminalTitle.textContent = 'terminal — snake.sh';
         startGame();
     });
-
     startDodgerBtn.addEventListener('click', () => {
         currentGame = 'dodger';
         const isDesktop = window.innerWidth > 1024;
@@ -1203,6 +1349,97 @@
         terminalTitle.textContent = 'terminal — bug_dodger.sh';
         startGame();
     });
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIconSun = document.getElementById('theme-icon-sun');
+    const themeIconMoon = document.getElementById('theme-icon-moon');
+    const html = document.documentElement;
+    if (themeToggle && themeIconSun && themeIconMoon) {
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            if (isDark) {
+                themeIconSun.classList.add('hidden');
+                themeIconMoon.classList.remove('hidden');
+            } else {
+                themeIconSun.classList.remove('hidden');
+                themeIconMoon.classList.add('hidden');
+            }
+        });
+    }
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Add loading state to buttons
+    document.querySelectorAll('button[type="submit"]').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (!this.disabled) {
+                this.style.opacity = '0.7';
+                this.style.pointerEvents = 'none';
+            }
+        });
+    });
+
+    // Fix for mobile menu z-index
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    if (mobileOverlay) {
+        mobileOverlay.style.zIndex = '60';
+    }
+
+    // Prevent form resubmission on page refresh
+    if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+
+    // Initialize theme on load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        html.classList.remove('dark');
+        if (themeIconSun && themeIconMoon) {
+            themeIconSun.classList.add('hidden');
+            themeIconMoon.classList.remove('hidden');
+        }
+    }
+
+    // Performance optimization: Debounce scroll events
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                // Scroll-based animations handled by CSS
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // Add error boundary for game
+    window.addEventListener('error', (e) => {
+        if (e.target.tagName === 'CANVAS') {
+            console.warn('Canvas error caught:', e);
+        }
+    }, true);
 </script>
 </body>
 </html>
