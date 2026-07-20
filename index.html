@@ -196,36 +196,6 @@
             100% { transform: translateX(-50%); }
         }
 
-        .scroll-to-top {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            width: 2.75rem;
-            height: 2.75rem;
-            border-radius: 9999px;
-            background: #a4e6ff;
-            color: #003543;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(164, 230, 255, 0.3);
-            z-index: 50;
-            opacity: 0;
-            transform: translateY(1rem) scale(0.9);
-            transition: all 0.3s ease;
-            pointer-events: none;
-            cursor: pointer;
-            border: none;
-        }
-        .scroll-to-top.visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            pointer-events: auto;
-        }
-        .scroll-to-top:active {
-            transform: scale(0.9);
-        }
-
         .project-filter-btn {
             border-radius: 9999px;
             border: 1px solid rgba(255,255,255,0.1);
@@ -330,7 +300,6 @@
             #contact .glass.p-8 { padding: 1.25rem !important; }
             #playground .px-6 { padding-left: 1rem !important; padding-right: 1rem !important; }
             #playground .py-3 { padding-top: 0.75rem !important; padding-bottom: 0.75rem !important; }
-            .scroll-to-top { bottom: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; }
         }
         @media (max-width: 480px) {
             #home h1 { font-size: 2rem !important; }
@@ -752,13 +721,6 @@ Passionate about technology and always eager to learn new things.`,
     </div>
 </section>
 
-<!-- Scroll To Top Button -->
-<button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
-    </svg>
-</button>
-
 <!-- Projects Section -->
 <section id="projects" class="relative z-10 py-20 sm:py-28 text-foreground flex justify-center overflow-hidden">
     <div class="container max-w-6xl px-4 sm:px-6 w-full ">
@@ -1049,21 +1011,6 @@ Passionate about technology and always eager to learn new things.`,
         mainHeader.classList.toggle('backdrop-blur-xl', isScrolled);
         mainHeader.classList.toggle('shadow-lg', isScrolled);
     });
-
-    // Scroll-to-top button
-    const scrollToTopBtn = document.getElementById('scroll-to-top');
-    if (scrollToTopBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        });
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
 
     // Interactive Projects Section
     const projectDataSource = document.getElementById('project-data-source');
